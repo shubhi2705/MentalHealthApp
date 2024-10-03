@@ -49,26 +49,30 @@ function SignInPage() {
 
 export default SignInPage;
 */
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignInPage() {
-  const [username, setUsername] = useState('');
-  const [phone, setPhone] = useState('');
+  const [username, setUsername] = useState("");
+  const [phone, setPhone] = useState("");
   const navigate = useNavigate();
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    navigate('/profile', { state: { username, phone } });
+    navigate("/profile", { state: { username, phone } });
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-4xl font-bold text-blue-600 mb-6 text-center">Sign In</h1>
+    <div className="flex items-center justify-center h-screen">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md ">
+        <h1 className="text-4xl font-bold text-blue-600 mb-6 text-center">
+          Sign In
+        </h1>
         <form onSubmit={handleSignIn}>
           <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Name</label>
+            <label className="block text-gray-700 font-semibold mb-2">
+              Name
+            </label>
             <input
               className="p-3 w-full rounded-lg border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               type="text"
@@ -80,7 +84,9 @@ function SignInPage() {
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Phone Number</label>
+            <label className="block text-gray-700 font-semibold mb-2">
+              Phone Number
+            </label>
             <input
               className="p-3 w-full rounded-lg border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               type="tel"

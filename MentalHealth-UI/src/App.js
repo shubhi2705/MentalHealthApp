@@ -39,20 +39,22 @@ import Emergency from "./components/Emergency";
 import VirtualAssistant from "./components/VirtualAssistant";
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/language" element={<LanguagePage />} />
-        <Route path="/greeting" element={<GreetingPage />} />
-        <Route path="/selfAssessment" element={<SelfAssessment />} />
-        <Route path="/thankyou" element={<Thankyou />} />
-        <Route path="/resources" element={<ExploreResources />} />
-        <Route path="/emergency" element={<Emergency />} />
-        <Route path="/liveChat" element={<VirtualAssistant />} />
-      </Routes>
-    </Router>
+    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600">
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/signin" element={<SignInPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/language" element={<LanguagePage />} />
+          <Route path="/greeting" element={<GreetingPage />} />
+          <Route path="/selfAssessment" element={<SelfAssessment />} />
+          <Route path="/thankyou" element={<Thankyou />} />
+          <Route path="/resources" element={<ExploreResources />} />
+          <Route path="/emergency" element={<Emergency />} />
+          <Route path="/liveChat" element={<VirtualAssistant />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
