@@ -1,0 +1,70 @@
+/* Styles for Workshop page */
+.workshop-container {
+    margin-top: 50px;
+    position: relative;
+    padding: 20px;
+  }
+  
+  .workshop-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #34495e;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .workshop-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .workshop-card {
+    width: 350px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fdfdfd;
+  }
+  
+  .workshop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .workshop-info {
+    font-size: 16px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  .workshop-description {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-top: 10px;
+  }
+  
+  .add-workshop-btn {
+    background-color: #7ec6e0;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .add-workshop-btn:hover {
+    background-color: #7ec6e0;
+    color: #fff;
+    transform: scale(1.05);
+  }
+  
+  /* Typography */
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #34495e;
+  }
+  

@@ -1,31 +1,4 @@
-/*import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
-
-*/
-import React from "react";
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import SignInPage from "./components/SignInPage";
@@ -37,7 +10,16 @@ import Thankyou from "./components/Thankyou";
 import ExploreResources from "./components/ExploreResources";
 import Emergency from "./components/Emergency";
 import VirtualAssistant from "./components/VirtualAssistant";
+import Workshop from './components/Workshop';
+import AdminSignIn from './components/AdminSignIn';
+import GuidedExercise from './components/GuidedExercise';
+import VideoCounseling from './components/VideoCounseling';
+import STT from './components/STT';
+import TTS from './components/TTS';
+import Dashboard from './components/Dashboard';
+
 function App() {
+  const [isAdmin, setIsAdmin] = useState(false); 
   return (
     <div className="flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600">
       <Router>
@@ -52,7 +34,18 @@ function App() {
           <Route path="/resources" element={<ExploreResources />} />
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/liveChat" element={<VirtualAssistant />} />
+          <Route path="/admin-signin" element={<AdminSignIn setIsAdmin={setIsAdmin} />} />
+          <Route path="/workshop" element={<Workshop isAdmin={isAdmin} />} />
+          <Route path="/exercises" element={<GuidedExercise />} />
+          <Route path="/counseling" element={<VideoCounseling />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
+
+        {/* STT and TTS buttons in the top right corner */}
+        <div style={{ position: 'fixed', top: 20, right: 20, display: 'flex', gap: '10px' }}>
+          <STT />
+          <TTS />
+        </div>
       </Router>
     </div>
   );

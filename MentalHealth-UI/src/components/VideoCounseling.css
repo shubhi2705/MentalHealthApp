@@ -1,0 +1,49 @@
+/* VideoCounseling.css */
+.video-counseling {
+    margin-top: 50px;
+  }
+  
+  .video-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .connect-section {
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  .connect-btn {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+  
+  .video-session {
+    margin-top: 50px;
+  }
+  
+  .video-card {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+  }
+  
+  .video-placeholder {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #999;
+  }
+  
+  .counselor-details {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 20px;
+    margin-top: 10px;
+  }
+  
+  .counselor-details h4 {
+    margin-bottom: 15px;
+  }
+  

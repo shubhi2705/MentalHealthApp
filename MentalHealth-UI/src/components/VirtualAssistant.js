@@ -1,5 +1,8 @@
-// src/LiveChat.js
+
+
 import React, { useState, useEffect } from "react";
+
+// Voice input setup
 
 const VirtualAssistant = () => {
   const [messages, setMessages] = useState([]);
@@ -11,7 +14,7 @@ const VirtualAssistant = () => {
   };
 
   const user = {
-    name: "Shubhi",
+    name: "User",
     profilePicture: "http://surl.li/gjcpby", // User's profile picture
   };
 
@@ -52,30 +55,46 @@ const VirtualAssistant = () => {
 
     setInput("");
   };
+  const SpeechRecognition =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+
+  const startListening = () => {
+    recognition.start();
+  };
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    setInput(transcript);
+  };
 
   const styles = {
     container: {
-      maxWidth: "1000px",
+      maxWidth: "900px",
       margin: "50px auto",
       padding: "20px",
       border: "1px solid #007bff",
       borderRadius: "10px",
-      backgroundColor: "#f9f9f9",
-      boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+      backgroundColor: "#f1f7fc",
+      boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
     },
     chatWindow: {
       height: "400px",
       overflowY: "auto",
       marginBottom: "10px",
-      padding: "10px",
+      padding: "20px",
       border: "1px solid #007bff",
-      borderRadius: "5px",
-      backgroundColor: "#e7f3ff",
+      borderRadius: "10px",
+      backgroundColor: "#eef6ff",
     },
     message: {
-      margin: "5px 0",
+      margin: "10px 0",
       display: "flex",
       alignItems: "center",
+      padding: "10px",
+      borderRadius: "5px",
+      backgroundColor: "#fff",
+      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
     },
     userMessage: {
       justifyContent: "flex-end",
@@ -84,27 +103,36 @@ const VirtualAssistant = () => {
       justifyContent: "flex-start",
     },
     profileImage: {
-      width: "40px",
-      height: "40px",
+      width: "50px",
+      height: "50px",
       borderRadius: "50%",
       marginRight: "10px",
     },
     inputContainer: {
       display: "flex",
+      justifyContent: "space-between",
+      gap: "10px",
     },
     input: {
       flex: 1,
-      padding: "10px",
-      border: "1px solid #007bff",
+      padding: "12px",
+      border: "2px solid #007bff",
       borderRadius: "5px",
-      marginRight: "10px",
     },
     button: {
-      padding: "10px 15px",
+      padding: "10px 20px",
       border: "none",
       borderRadius: "5px",
       backgroundColor: "#007bff",
       color: "#fff",
+      cursor: "pointer",
+    },
+    voiceButton: {
+      backgroundColor: "#28a745",
+      color: "#fff",
+      padding: "10px 15px",
+      border: "none",
+      borderRadius: "5px",
       cursor: "pointer",
     },
   };
@@ -154,6 +182,13 @@ const VirtualAssistant = () => {
         />
         <button type="submit" style={styles.button}>
           Send
+        </button>
+        <button
+          type="button"
+          style={styles.voiceButton}
+          onClick={startListening}
+        >
+          🎙️ Voice Input
         </button>
       </form>
     </div>

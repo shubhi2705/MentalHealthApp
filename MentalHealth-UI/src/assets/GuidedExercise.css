@@ -1,0 +1,63 @@
+/* Styles for Guided Exercise page */
+.exercise-container {
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .exercise-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    color: #34495e;
+    margin-bottom: 20px;
+  }
+  
+  .exercise-intro {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+  }
+  
+  .exercise-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .exercise-card {
+    width: 300px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .exercise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .exercise-card-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2980b9;
+  }
+  
+  .exercise-card p {
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+  
+  .exercise-card button {
+    background-color: #27ae60;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .exercise-card button:hover {
+    background-color: #1abc9c;
+  }
+  
