@@ -1,4 +1,4 @@
-import {db} from '../DB/Dexie'
+import db from '../DB/Dexie';
 async function handleSignin(phoneNumber, otp) {   
     
     const user = await db.users.where('phoneNumber').equals(phoneNumber).first();
