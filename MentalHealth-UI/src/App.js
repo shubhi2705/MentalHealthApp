@@ -17,6 +17,7 @@ import VideoCounseling from './components/VideoCounseling';
 import STT from './components/STT';
 import TTS from './components/TTS';
 import Dashboard from './components/Dashboard';
+import SignupPage from './components/SignupPage';
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false); 
@@ -26,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/signin" element={<SignInPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/signup" element={<SignupPage />} />
           <Route path="/language" element={<LanguagePage />} />
           <Route path="/greeting" element={<GreetingPage />} />
           <Route path="/selfAssessment" element={<SelfAssessment />} />
