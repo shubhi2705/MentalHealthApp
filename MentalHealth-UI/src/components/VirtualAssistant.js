@@ -1,13 +1,17 @@
 
 
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Voice input setup
 
 const VirtualAssistant = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-
+  const navigate = useNavigate();
+  const handleBackToHome = () => {
+    navigate("/"); // Redirect to home
+  };
   const assistant = {
     name: "Assistant",
     profilePicture: "http://surl.li/bjeonj", // Assistant's profile picture
@@ -139,6 +143,12 @@ const recognition = new SpeechRecognition();
 
   return (
     <div style={styles.container}>
+       <button 
+        onClick={handleBackToHome} 
+        className="absolute  bg-transparent text-blue-600 focus:outline-none hover:text-blue-800 transition"
+        >
+        Back to Home
+      </button>
       <h2 style={{ textAlign: "center", color: "#007bff" }}>Live Chat</h2>
       <div style={styles.chatWindow}>
         {messages.map((message, index) => (

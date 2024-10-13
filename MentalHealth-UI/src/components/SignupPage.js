@@ -16,7 +16,7 @@ const SignupPage = () => {
     const navigate = useNavigate();
     const closeModal = () => {
         setShowModal(false);
-        navigate("/")
+        navigate("/signin")
     };
 
 
@@ -76,7 +76,7 @@ const SignupPage = () => {
     };
 
     return (
-        <div className="max-w-lg w-full mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
+        <div className="max-w-lg w-full mx-auto my-10 p-6 bg-white rounded-lg shadow-md ">
         <h2 className="text-2xl font-bold mb-6">User Signup</h2>
         {errorMessage && <p className="text-red-500">{errorMessage}</p>}
         {successMessage && <p className="text-green-500">{successMessage}</p>}

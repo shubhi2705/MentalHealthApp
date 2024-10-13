@@ -1,0 +1,40 @@
+
+  .container-manage {
+    max-height: calc(100vh - 140px); /* Adjust 100px to allow space for header/footer if needed */
+    overflow-y: scroll;
+  }
+  .container-manage::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+  }
+  
+  /* Hide scrollbar for Firefox */
+  .container-manage {
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  /* For other browsers, ensure scrollbar is hidden */
+  .container-manage {
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+  }
+
+.custom-accordion-header {
+    background-color: #288197; /* Default gray background */
+    color: #000; /* Text color */
+    border: none; /* No border */
+    transition: background-color 0.2s ease; /* Smooth transition */
+  }
+  
+  .custom-accordion-header:hover {
+    background-color: #288197; /* Slightly darker on hover */
+  }
+  
+  .accordion-button {
+    background-color: #288197 !important; /* Ensure gray background when not collapsed */
+    color: #000 !important; /* Text color */
+  }
+  
+  .accordion-button:not(.collapsed) {
+    background-color: #288197 !important; /* Keep the same background when expanded */
+    color: #000 !important; /* Keep the same text color when expanded */
+  }
+  

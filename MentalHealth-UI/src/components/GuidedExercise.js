@@ -12,7 +12,7 @@ const exercises = [
     2. Close your eyes and take a deep breath through your nose, feeling your lungs expand.
     3. Hold your breath for a moment, then slowly exhale through your mouth.
     4. Repeat this process for the next 5-10 minutes, focusing on your breathing and letting go of distracting thoughts.`,
-    link: '#', // Link to the actual exercise or audio guide if available
+    link: '#',
   },
   {
     title: 'Mindfulness Meditation',
@@ -70,10 +70,10 @@ const GuidedExercise = () => {
       </p>
       <div className="exercise-list">
         {exercises.map((exercise, index) => (
-          <Card key={index} className="exercise-card">
+          <Card key={index} className="exercise-card mb-4 shadow-lg">
             <Card.Body>
               <Card.Title className="exercise-card-title">{exercise.title}</Card.Title>
-              <Card.Text>
+              <Card.Text className="exercise-description">
                 <strong>Duration:</strong> {exercise.duration} <br />
                 <strong>Difficulty:</strong> {exercise.difficulty} <br />
                 {exercise.description}
