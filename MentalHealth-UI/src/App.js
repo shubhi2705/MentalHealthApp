@@ -38,7 +38,7 @@ function App() {
             <Route path="/emergency" element={<Emergency />} />
             <Route path="/liveChat" element={<VirtualAssistant />} />
             <Route path="/admin-signin" element={<AdminSignIn setIsAdmin={setIsAdmin} />} />
-            <Route path="/workshop" element={<Workshop isAdmin={isAdmin} />} />
+            <Route path="/workshops" element={<Workshop isAdmin={isAdmin} />} />
             <Route path="/exercises" element={<GuidedExercise />} />
             <Route path="/counseling" element={<VideoCounseling />} />
             <Route path="/dashboard" element={<Dashboard />} />

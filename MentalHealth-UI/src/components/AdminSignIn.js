@@ -33,7 +33,7 @@ const AdminSignIn = ({ setIsAdmin }) => {
     localStorage.setItem('workshops', JSON.stringify(savedWorkshops));
 
     // Redirect back to the workshop page
-    navigate('/workshop');
+    navigate('/workshops');
   };
 
   return (
