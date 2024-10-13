@@ -59,15 +59,15 @@ const ProfilePage = ({ phoneNumber }) => {
     setSuccessMessage("");
     // First, store data offline
     try {
-      await ProfileOffline({
-        phNumber: "",
-        name: "",
-        email: "",
-        areasOfInterest: "",
-        gender: "",
-        password: "",
-        dob: "",
-      });
+      // await ProfileOffline({
+      //   phNumber: "",
+      //   name: "",
+      //   email: "",
+      //   areasOfInterest: "",
+      //   gender: "",
+      //   password: "",
+      //   dob: "",
+      // });
 
       // Handle form submission for updating user data
       e.preventDefault();
@@ -97,25 +97,25 @@ const ProfilePage = ({ phoneNumber }) => {
     }
   };
 
-  const ProfileOffline = async ({
-    phNumber,
-    name,
-    email,
-    areasOfInterest,
-    gender,
-    password,
-    dob,
-  }) => {
-    await db.users.update({
-      phoneNumber: phNumber,
-      name,
-      email,
-      areasOfInterest,
-      gender,
-      password,
-      dob,
-    });
-  };
+  // const ProfileOffline = async ({
+  //   phNumber,
+  //   name,
+  //   email,
+  //   areasOfInterest,
+  //   gender,
+  //   password,
+  //   dob,
+  // }) => {
+  //   await db.users.update({
+  //     phoneNumber: phNumber,
+  //     name,
+  //     email,
+  //     areasOfInterest,
+  //     gender,
+  //     password,
+  //     dob,
+  //   });
+  // };
   if (loading)
     return (
       <div className="max-w-lg w-full mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
@@ -189,7 +189,7 @@ const ProfilePage = ({ phoneNumber }) => {
               className="w-full px-3 py-2 border rounded-md"
             />
           </div>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label
               className="block mb-2 text-sm font-medium"
               htmlFor="password"
@@ -206,7 +206,7 @@ const ProfilePage = ({ phoneNumber }) => {
               required
               className="w-full px-3 py-2 border rounded-md"
             />
-          </div>
+          </div> */}
           <div className="mb-4">
             <label className="block text-gray-700 font-semibold mb-2">
               Date of Birth
