@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function Chatbot() {
+  const navigate = useNavigate();
   const [sessionId, setSessionId] = useState(null);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const handleBackToHome = () => {
+    navigate("/"); // Redirect to home
+  };
 
   useEffect(() => {
     // Create session when component mounts
@@ -40,6 +45,12 @@ function Chatbot() {
 
   return (
     <div className="chatbot" style={{ border: '1px solid #ccc', padding: '10px', width: '300px', backgroundColor: 'white' }}>
+       <button 
+        onClick={handleBackToHome} 
+        className="absolute  bg-transparent text-blue-600 px-4 py-2 focus:outline-none hover:text-blue-800 transition"
+        >
+        Back to Home
+      </button>
       <div className="messages" style={{ height: '200px', overflowY: 'scroll', marginBottom: '10px' }}>
         {messages.map((msg, index) => (
           <div key={index} style={{ textAlign: msg.from === 'user' ? 'right' : 'left' }}>

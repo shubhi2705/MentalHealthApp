@@ -5,10 +5,10 @@ export default function Thankyou() {
 
     const navigate=useNavigate();
     const handleClick=()=>{
-        navigate('/')
+        navigate('/dashboard')
     }
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
+        <div className="flex flex-col items-center justify-center h-screen m-10 p-10 bg-gray-50">
   <h2 className="text-2xl font-bold mb-4">Thankyou</h2>
   <p>Your responses have been submitted successfully.</p>
   <div>

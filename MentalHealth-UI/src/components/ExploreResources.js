@@ -1,6 +1,8 @@
 // src/ExploreResources.js
 import React, { useState } from "react";
 import Modal from "./Modal";
+import { useNavigate } from "react-router-dom";
+
 
 const resources = [
   {
@@ -111,6 +113,7 @@ const resources = [
 ];
 
 const ExploreResources = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState(null);
 
@@ -123,18 +126,26 @@ const ExploreResources = () => {
     setIsModalOpen(false);
     setSelectedArticle(null);
   };
+  const handleBackToHome = () => {
+    navigate("/"); // Redirect to home
+  };
 
   return (
     <div className="max-w-5xl mx-auto p-8 bg-gray-50 rounded-lg shadow-lg h-screen">
-      <h1 className="text-4xl font-bold text-center mb-8 text-blue-600">
+       <button 
+        onClick={handleBackToHome} 
+        className="absolute  bg-transparent text-blue-600 px-4 py-2 focus:outline-none hover:text-blue-800 transition"
+        >
+        Back to Home
+      </button>
+      <h1 className="text-4xl m-10 font-bold text-center mb-8 text-blue-600">
         Explore Resources
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {resources.map((resource, index) => (
           <div
             key={index}
-            className="bg-white border border-gray-300 rounded-lg p-6 transition duration-200 transform hover:scale-105 hover:shadow-lg"
-          >
+ className="bg-gray-100 border border-gray-300 rounded-lg p-6 transition duration-200 transform hover:scale-105 hover:shadow-lg hover:bg-blue-50"          >
             <h2 className="text-2xl font-semibold text-blue-500 mb-4">
               {resource.title}
             </h2>
@@ -150,8 +161,10 @@ const ExploreResources = () => {
                 </li>
               ))}
             </ul>
+            
           </div>
         ))}
+        
       </div>
       <Modal
         isOpen={isModalOpen}

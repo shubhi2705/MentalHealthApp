@@ -22,25 +22,27 @@ import SignupPage from './components/SignupPage';
 function App() {
   const [isAdmin, setIsAdmin] = useState(false); 
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600">
+    <div className="flex flex-col w-full h-screen bg-gradient-to-r from-light-blue-300 to-light-blue-50">
       <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/signin" element={<SignInPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/language" element={<LanguagePage />} />
-          <Route path="/greeting" element={<GreetingPage />} />
-          <Route path="/selfAssessment" element={<SelfAssessment />} />
-          <Route path="/thankyou" element={<Thankyou />} />
-          <Route path="/resources" element={<ExploreResources />} />
-          <Route path="/emergency" element={<Emergency />} />
-          <Route path="/liveChat" element={<VirtualAssistant />} />
-          <Route path="/admin-signin" element={<AdminSignIn setIsAdmin={setIsAdmin} />} />
-          <Route path="/workshop" element={<Workshop isAdmin={isAdmin} />} />
-          <Route path="/exercises" element={<GuidedExercise />} />
-          <Route path="/counseling" element={<VideoCounseling />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
+        {/* Wrap Routes inside a div with the background class */}
+        
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/signin" element={<SignInPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/language" element={<LanguagePage />} />
+            <Route path="/greeting" element={<GreetingPage />} />
+            <Route path="/selfAssessment" element={<SelfAssessment />} />
+            <Route path="/thankyou" element={<Thankyou />} />
+            <Route path="/resources" element={<ExploreResources />} />
+            <Route path="/emergency" element={<Emergency />} />
+            <Route path="/liveChat" element={<VirtualAssistant />} />
+            <Route path="/admin-signin" element={<AdminSignIn setIsAdmin={setIsAdmin} />} />
+            <Route path="/workshop" element={<Workshop isAdmin={isAdmin} />} />
+            <Route path="/exercises" element={<GuidedExercise />} />
+            <Route path="/counseling" element={<VideoCounseling />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
 
         {/* STT and TTS buttons in the top right corner */}
         <div style={{ position: 'fixed', top: 20, right: 20, display: 'flex', gap: '10px' }}>

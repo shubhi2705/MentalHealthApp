@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './LandingPage.css'
+import './LandingPage.css';
+
 function LandingPage() {
   const services = [
     {
@@ -26,40 +27,38 @@ function LandingPage() {
   ];
   
   return (
-    <div className="app bg-gray-100 min-h-screen">
-    <nav className="navbar flex justify-between items-center p-4 bg-white shadow-lg fixed w-full z-10">
-      <div className="navbar-brand text-blue-800 text-3xl font-extrabold">MindCare</div>
-      <div className="navbar-options flex items-center space-x-4">
-        <Link to="/signup" className="nav-link text-blue-800 hover:text-blue-600 transition duration-300">Register</Link>
-        <Link to="/signin" className="nav-link text-blue-800 hover:text-blue-600 transition duration-300">Sign In</Link>
-        <select className="lang-select ml-4 p-2 rounded-md bg-blue-50 text-gray-800">
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-        </select>
-      </div>
-    </nav>
+    <div className="app bg-gray-100 w-full">
+      <nav className="navbar flex p-2 bg-darkblue fixed w-full z-20">
+        <div className="navbar-brand text-white text-3xl font-extrabold">MindCare</div>
+        <div className="navbar-options flex items-center space-x-4">
+          <Link to="/signup" className="nav-link text-white hover:text-gray-300 transition duration-300">Register</Link>
+          <Link to="/signin" className="nav-link text-white hover:text-gray-300 transition duration-300">Sign In</Link>
+          <select className="lang-select ml-4 p-2 rounded-md bg-blue-50 text-gray-800">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+          </select>
+        </div>
+      </nav>
   
-    <div className="flex flex-col items-center justify-center pt-24 p-6">
-      <h1 className="text-6xl font-extrabold text-blue-800 mb-6 animate__animated animate__fadeIn">MindCare</h1>
-      <p className="text-lg text-gray-800 mb-10 max-w-2xl text-center animate__animated animate__fadeIn animate__delay-1s">
-        Your mental health matters, no matter where you are. MindCare offers personalized mental health support for remote and rural communities. Get access to self-help tools, AI-powered chat support, and live connections to mental health professionals.
-      </p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
-        {services.map((service, index) => (
-          <div key={index} className="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:shadow-xl hover:scale-105 animate__animated animate__fadeIn animate__delay-2s">
-            <h2 className="text-2xl font-bold mb-4 text-blue-700">{service.title}</h2>
-            <p className="text-gray-700 mb-4">{service.description}</p>
-            <Link to={service.link} className="text-blue-700 hover:text-blue-500 font-semibold underline">Learn More</Link>
-          </div>
-        ))}
+      <div className="flex flex-col items-center justify-center pt-20 px-4">
+        <h1 className="text-6xl font-extrabold text-blue-800 mb-6 animate__animated animate__fadeIn w-full text-center">MindCare</h1>
+        <p className="text-lg text-gray-800 mb-10 max-w-2xl text-center animate__animated animate__fadeIn animate__delay-1s">
+          Your mental health matters, no matter where you are. MindCare offers personalized mental health support for remote and rural communities. Get access to self-help tools, AI-powered chat support, and live connections to mental health professionals.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
+          {services.map((service, index) => (
+            <div key={index} className="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:shadow-xl hover:scale-105 animate__animated animate__fadeIn animate__delay-2s">
+              <h2 className="text-2xl font-bold mb-4 text-blue-700">{service.title}</h2>
+              <p className="text-gray-700 mb-4">{service.description}</p>
+              <Link to={service.link} className="text-blue-700 hover:text-blue-500 font-semibold underline">Learn More</Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-  
-
-  )
+  );
 }
 
 export default LandingPage;
