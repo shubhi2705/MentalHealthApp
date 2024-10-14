@@ -18,6 +18,7 @@ import STT from "./components/STT";
 import TTS from "./components/TTS";
 import Dashboard from "./components/Dashboard";
 import SignupPage from "./components/SignupPage";
+import AuthGuard from "./AuthGuard";
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -30,22 +31,85 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/language" element={<LanguagePage />} />
-          <Route path="/greeting" element={<GreetingPage />} />
-          <Route path="/selfAssessment" element={<SelfAssessment />} />
+          <Route
+            path="/dashboard"
+            element={
+              <AuthGuard>
+                <Dashboard />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <AuthGuard>
+                <ProfilePage />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/language"
+            element={
+              <AuthGuard>
+                <LanguagePage />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/greeting"
+            element={
+              <AuthGuard>
+                <GreetingPage />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/selfAssessment"
+            element={
+              <AuthGuard>
+                <SelfAssessment />
+              </AuthGuard>
+            }
+          />
           <Route path="/thankyou" element={<Thankyou />} />
-          <Route path="/resources" element={<ExploreResources />} />
+          <Route
+            path="/resources"
+            element={
+              <AuthGuard>
+                <ExploreResources />
+              </AuthGuard>
+            }
+          />
           <Route path="/emergency" element={<Emergency />} />
-          <Route path="/liveChat" element={<VirtualAssistant />} />
+          <Route
+            path="/liveChat"
+            element={
+              <AuthGuard>
+                <VirtualAssistant />
+              </AuthGuard>
+            }
+          />
           <Route
             path="/admin-signin"
             element={<AdminSignIn setIsAdmin={setIsAdmin} />}
           />
           <Route path="/workshops" element={<Workshop isAdmin={isAdmin} />} />
-          <Route path="/exercises" element={<GuidedExercise />} />
-          <Route path="/counseling" element={<VideoCounseling />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/exercises"
+            element={
+              <AuthGuard>
+                <GuidedExercise />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="/counseling"
+            element={
+              <AuthGuard>
+                <VideoCounseling />
+              </AuthGuard>
+            }
+          />
         </Routes>
 
         {/* STT and TTS buttons in the top right corner */}
