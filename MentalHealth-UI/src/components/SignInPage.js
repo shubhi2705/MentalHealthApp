@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import db from "../DB/Dexie"; // Import your Dexie database setup
 import { useAuth } from "../Authcontext"; // Import the Auth context
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faKey } from '@fortawesome/free-solid-svg-icons';
 
 const SignInPage = () => {
   //const { login } = useAuth(); // Get the login function from Auth context
@@ -118,17 +120,22 @@ const SignInPage = () => {
     <div className="flex items-center justify-center min-h-screen py-10">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
         <h2 className="text-2xl font-bold mb-4">Sign In</h2>
-
-        <input
-          type="text"
-          className="border border-gray-300 p-2 rounded w-full mb-4"
-          placeholder="Enter Phone Number"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          aria-label="Phone Number"
-        />
+  
+        <div className="flex items-center border border-gray-300 rounded mb-4">
+          <span className="p-2">
+            <FontAwesomeIcon icon={faPhone} />
+          </span>
+          <input
+            type="text"
+            className="flex-1 p-2 rounded w-full"
+            placeholder="Enter Phone Number"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            aria-label="Phone Number"
+          />
+        </div>
         {message && <p className="text-red-500 mb-4">{message}</p>}
-
+  
         <a
           href="#"
           onClick={(e) => {
@@ -141,17 +148,22 @@ const SignInPage = () => {
         >
           {loading ? "Sending..." : "Request OTP"}
         </a>
-
+  
         {isOtpSent && (
           <>
-            <input
-              type="text"
-              className="border border-gray-300 p-2 rounded w-full mt-4 mb-4"
-              placeholder="Enter OTP"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-              aria-label="OTP"
-            />
+            <div className="flex items-center border border-gray-300 rounded mb-4">
+              <span className="p-2">
+                <FontAwesomeIcon icon={faKey} />
+              </span>
+              <input
+                type="text"
+                className="flex-1 p-2 rounded w-full"
+                placeholder="Enter OTP"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+                aria-label="OTP"
+              />
+            </div>
             <button
               onClick={verifyOTP}
               className="bg-green-500 text-white py-2 rounded w-full hover:bg-green-600"
@@ -160,7 +172,7 @@ const SignInPage = () => {
             </button>
           </>
         )}
-
+  
         {/* Link for New Users */}
         <p className="mt-4 text-center">
           New user?
@@ -169,7 +181,7 @@ const SignInPage = () => {
             Please sign up
           </a>
         </p>
-
+  
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="bg-white rounded-lg shadow-lg p-6 w-80 text-center">
@@ -193,6 +205,7 @@ const SignInPage = () => {
       </div>
     </div>
   );
+  
 };
 
 export default SignInPage;

@@ -1,0 +1,66 @@
+.workshop-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .workshop-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50; /* Darker title color */
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .add-workshop-btn {
+    background-color: #3498db; /* Primary button color */
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .add-workshop-btn:hover {
+    background-color: #2980b9; /* Darker on hover */
+  }
+  
+  .workshop-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+  }
+  
+  .workshop-card {
+    background-color: #ffffff; /* White card background */
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .workshop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .workshop-info {
+    font-size: 1rem;
+    color: #34495e; /* Slightly muted text color */
+  }
+  
+  .workshop-description {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #7f8c8d; /* Lighter description color */
+  }
+  .add-workshop-btn {
+    background-color: #3498db; /* Primary button color */
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .add-workshop-btn:hover {
+    background-color: #2980b9; /* Darker on hover */
+  }
+    

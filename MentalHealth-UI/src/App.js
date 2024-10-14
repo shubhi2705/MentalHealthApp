@@ -19,6 +19,8 @@ import TTS from "./components/TTS";
 import Dashboard from "./components/Dashboard";
 import SignupPage from "./components/SignupPage";
 import AuthGuard from "./AuthGuard";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -122,8 +124,8 @@ function App() {
             gap: "10px",
           }}
         >
-          <STT />
-          <TTS />
+          {/* <STT />
+          <TTS /> */}
         </div>
       </Router>
     </div>

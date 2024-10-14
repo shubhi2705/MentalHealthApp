@@ -18,18 +18,18 @@
   }
 
 .custom-accordion-header {
-    background-color: #288197; /* Default gray background */
+    background-color: #83c1fd; /* Default gray background */
     color: #000; /* Text color */
     border: none; /* No border */
     transition: background-color 0.2s ease; /* Smooth transition */
   }
   
   .custom-accordion-header:hover {
-    background-color: #288197; /* Slightly darker on hover */
+    background-color:#83c1fd; /* Slightly darker on hover */
   }
   
   .accordion-button {
-    background-color: #288197 !important; /* Ensure gray background when not collapsed */
+    background-color: #83c1fd !important; /* Ensure gray background when not collapsed */
     color: #000 !important; /* Text color */
   }
   

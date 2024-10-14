@@ -24,11 +24,14 @@ router.get("/fetchuser/:phoneNumber", async (req, res) => {
 });
 
 router.put("/updateuser", async (req, res) => {
-  const { phoneNumber, name, email, dob, areasOfIntrest, gender } = req.body;
+  console.log("REquest body for update user is:",req);
+  const { phoneNumber, name, email, dob, areasOfInterest, gender } = req.body;
   try {
+//console.log("Inside update user API having dob as:",dob)
+
     const updatedUser = await User.findOneAndUpdate(
       { phoneNumber },
-      { name, email, gender, dob, areasOfIntrest },
+      { name, email, gender, dob, areasOfInterest },
       { new: true }
     );
     if (!updatedUser) {

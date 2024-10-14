@@ -5,7 +5,7 @@ const db = new Dexie("UserDatabase");
 
 db.version(1).stores({
   users:
-    "++id, name,gender,phoneNumber,dob,email,password,areasOfIntrest, otp, otpExpires", // Define your schema
+    "++id, name,gender,phoneNumber,dob,email,areasOfIntrest, otp, otpExpires", // Define your schema
 });
 
 export default db;

@@ -17,16 +17,15 @@ const twilioClient = twilio(accountSId,authToken);
 
 // Signup
 router.post('/signup', async (req, res) => {
-    const { phNumber, password,name,email,areasOfIntrest,gender } = req.body;
-
-    try {
-        const hashedPassword = await bcrypt.hash(password, 10);
+    const { phNumber,name,email,areasOfInterest,gender,dob } = req.body;
+    console.log("Inside signup with AOI as and formatted dob as:",areasOfInterest,dob)
+    try { 
        // const otp = otpGenerator.generate(6, { upperCase: true, specialChars: false });
-        const user = new User({name:name,email:email,gender:gender, areasOfIntrest:areasOfIntrest,phoneNumber:phNumber, password: hashedPassword});
+        const user = new User({name:name,email:email,gender:gender, areasOfInterest:areasOfInterest,phoneNumber:phNumber,dob:dob});
 
         await User.findOneAndUpdate(
             {phoneNumber:phNumber},
-            {name,email,gender,password},
+            {name,email,gender,dob,areasOfInterest},
             {upsert:true, new:true,setDefaultsOnInsert:true}
         );
 

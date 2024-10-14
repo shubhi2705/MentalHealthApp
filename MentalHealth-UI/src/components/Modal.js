@@ -1,29 +1,27 @@
-
-
 // src/Modal.js
 import React from 'react';
 
 const Modal = ({ isOpen, onClose, article }) => {
-  if (!isOpen) return null;
+  if (!isOpen || !article) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto relative transform transition-all duration-300 ease-in-out scale-100 opacity-100">
-        <button 
-          onClick={onClose} 
-          className="absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-2xl"
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-11/12 sm:w-80 text-center">
+        <span
+          className="text-xl font-bold cursor-pointer float-right"
+          onClick={onClose}
         >
           &times;
-        </button>
-        <h2 className="text-2xl font-semibold mb-4 text-blue-600">{article.title}</h2>
-        <p className="text-gray-700 mb-4">{article.description}</p>
-        <a 
-          href={article.link} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-blue-500 hover:underline"
+        </span>
+        <h2 className="text-xl font-bold mt-4">{article.name}</h2>
+        <p className="mt-2">{article.description}</p>
+        <a
+          href={article.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
         >
-          Read Full Article
+          Read More
         </a>
       </div>
     </div>
