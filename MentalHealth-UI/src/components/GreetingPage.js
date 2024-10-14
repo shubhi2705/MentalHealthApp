@@ -19,7 +19,7 @@ function GreetingPage() {
     <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
       <div className="bg-white p-10 rounded-lg shadow-xl text-center w-96">
         <h1 className="text-5xl font-bold mb-4">{greetings[language]}</h1>
-        <p className="text-lg text-gray-700 mb-6">Welcome to MindCare, your selected language is {language}. Let's explore the next steps in your mental health journey.</p>
+        <p className="text-lg text-gray-700 mb-6">Welcome to YouMatter, your selected language is {language}. Let's explore the next steps in your mental health journey.</p>
         
         <button  onClick={showAssessmentPage}
           className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg w-full mb-4 hover:bg-blue-700">

@@ -1,0 +1,129 @@
+.exercise-container {
+    background-color: #f0f8ff; /* Light blue background */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    height: 90vh; /* Set max height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 20px; /* Add some padding */
+    margin-top:50px;
+}
+.exercise-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+.exercise-list {
+    max-height: 800px !important; /* Adjust height as needed */
+    overflow-y: auto; /* Allows vertical scrolling */
+    display: flex; /* Use flexbox */
+    flex-direction: row; /* Align items in a row */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .exercise-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  
+  .exercise-card {
+    padding: 10px; /* Padding inside the card */
+    margin: 10px; /* Margin outside the card */
+    flex: 0 1 calc(33.33% - 20px); /* Adjust width and spacing */
+    box-sizing: border-box; /* Include padding and margin in width */
+  }
+.exercise-title {
+    color: #3a7bd5; /* Soft blue for title */
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.exercise-intro {
+    color: #4a4a4a; /* Dark gray for intro text */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+.exercise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.exercise-card-title {
+    color: #3a7bd5; /* Soft blue for card title */
+}
+
+.exercise-description {
+    color: #555555; /* Darker gray for description text */
+}
+
+.exercise-instructions {
+    color: #333333; /* Dark gray for instructions */
+}
+.stopwatch {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #3a7bd5; /* Peaceful blue color */
+    margin-top: 20px;
+}
+
+.exercise-button {
+    background: linear-gradient(90deg, #6a82fb, #fc5c7d); /* Gradient background */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding */
+    border-radius: 25px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    transition: background 0.3s, transform 0.2s; /* Transition for hover effects */
+  }
+  
+  .exercise-button:hover {
+    background: linear-gradient(90deg, #fc5c7d, #6a82fb); /* Reverse gradient on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+  }
+  
+.breathing-modal .modal-content {
+    border-radius: 15px; /* Rounded corners for the modal */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Box shadow */
+  }
+  
+  .breathing-modal .modal-header {
+    border-bottom: none; /* No border */
+  }
+  
+  .breathing-modal .modal-title {
+    font-weight: bold; /* Bold title */
+    font-size: 24px; /* Title size */
+    color: #6a82fb; /* Title color */
+  }
+  
+  .breathing-modal .modal-body {
+    position: relative; /* Position for bubble animation */
+  }
+  
+  .bubble-animation {
+    width: 100px; /* Size of the bubble */
+    height: 100px; /* Size of the bubble */
+    border-radius: 50%; /* Make it circular */
+    background: rgba(106, 130, 251, 0.6); /* Light bubble color */
+    position: absolute; /* Positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Centering adjustment */
+    animation: bubble 2s infinite; /* Bubble animation */
+  }
+  
+  @keyframes bubble {
+    0% {
+      transform: translate(-50%, -50%) scale(1); /* Starting scale */
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2); /* Scale up */
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1); /* Scale back */
+    }
+  }
+  
+  .breathing-modal .modal-footer {
+    border-top: none; /* No border */
+  }

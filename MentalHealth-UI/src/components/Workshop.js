@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Card, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt, faClock, faMapMarkerAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import '../assets/Workshop.css'; // Link to the custom styles
 
 const Workshop = () => {
@@ -63,9 +65,13 @@ const Workshop = () => {
               <Card.Body>
                 <Card.Title className="workshop-title">{workshop.title}</Card.Title>
                 <Card.Text className="workshop-info">
+                  <FontAwesomeIcon icon={faCalendarAlt} className="me-2" />
                   <strong>Date:</strong> {workshop.date}<br />
+                  <FontAwesomeIcon icon={faClock} className="me-2" />
                   <strong>Time:</strong> {workshop.time}<br />
+                  <FontAwesomeIcon icon={faMapMarkerAlt} className="me-2" />
                   <strong>Location:</strong> {workshop.location}<br />
+                  <FontAwesomeIcon icon={faUser} className="me-2" />
                   <strong>Contact:</strong> {workshop.contact}<br />
                 </Card.Text>
                 <Card.Text className="workshop-description">

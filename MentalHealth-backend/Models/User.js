@@ -10,10 +10,10 @@ const userSchema = new mongoose.Schema({
     minlength: 12, // Minimum length
     maxlength: 15,
   },
-  password: { type: String, required: true },
+ // password: { type: String, required: true },
   email: { type: String },
-  dob: { type: String },
-  areasOfIntrest: { type: String, maxlength: 50 },
+  dob: { type: Date },
+  areasOfInterest: { type: String, maxlength: 50 },
   otp: { type: String },
   otpExpires: { type: Date },
 });

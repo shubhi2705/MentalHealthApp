@@ -13,7 +13,7 @@ function LanguagePage() {
     <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-orange-500 to-yellow-600">
       <h1 className="text-4xl font-bold text-white mb-6">Select Your Preferred Language</h1>
       <p className="text-white mb-8 text-center max-w-lg">
-        MindCare supports multiple languages to help you feel more comfortable and connected. 
+        YouMatter supports multiple languages to help you feel more comfortable and connected. 
         Please select your preferred language for a more personalized experience.
       </p>
       <select
