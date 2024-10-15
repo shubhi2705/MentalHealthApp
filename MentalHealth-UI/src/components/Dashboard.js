@@ -99,8 +99,7 @@ const Dashboard = () => {
         </h1>
         <p style={styles.welcomeText}>
           We're here to support your mental health journey.
-        </p>
-        <VirtualAssistant />
+        </p>  <VirtualAssistant />
       </div>
     </div>
   );

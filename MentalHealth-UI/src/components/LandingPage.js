@@ -15,7 +15,7 @@ function LandingPage() {
     {
       title: "Contact a Counselor",
       description: "Connect directly with a licensed mental health counselor through video or chat sessions. Confidential and supportive therapy at your fingertips.",
-      link: "/counselor",
+      link: "/counseling",
       icon: faUserMd,
     },
     {

@@ -20,7 +20,8 @@ import Dashboard from "./components/Dashboard";
 import SignupPage from "./components/SignupPage";
 import AuthGuard from "./AuthGuard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import MoodTracker from './components/MoodTracker'
+import 'antd/dist/antd.css';
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -112,6 +113,7 @@ function App() {
               </AuthGuard>
             }
           />
+          <Route path="/moodtracker" element={<MoodTracker />}/>
         </Routes>
 
         {/* STT and TTS buttons in the top right corner */}

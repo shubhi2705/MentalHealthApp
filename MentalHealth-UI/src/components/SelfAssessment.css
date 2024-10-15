@@ -18,23 +18,23 @@
   }
 
 .custom-accordion-header {
-    background-color: #83c1fd; /* Default gray background */
+    background-color: #5acbe7; /* Default gray background */
     color: #000; /* Text color */
     border: none; /* No border */
     transition: background-color 0.2s ease; /* Smooth transition */
   }
   
   .custom-accordion-header:hover {
-    background-color:#83c1fd; /* Slightly darker on hover */
+    background-color:#5acbe7; /* Slightly darker on hover */
   }
   
   .accordion-button {
-    background-color: #83c1fd !important; /* Ensure gray background when not collapsed */
+    background-color: #5acbe7 !important; /* Ensure gray background when not collapsed */
     color: #000 !important; /* Text color */
   }
   
   .accordion-button:not(.collapsed) {
-    background-color: #288197 !important; /* Keep the same background when expanded */
+    background-color: #5acbe7 !important; /* Keep the same background when expanded */
     color: #000 !important; /* Keep the same text color when expanded */
   }
   

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faUser, faEnvelope, faPhone, faCalendar, faGenderless, faClipboardList } from '@fortawesome/free-solid-svg-icons';
+import db from '../DB/Dexie'; // Import the Dexie database
 
 const ProfilePage = ({ phoneNumber }) => {
   const [loading, setLoading] = useState(true);
@@ -36,9 +37,8 @@ const ProfilePage = ({ phoneNumber }) => {
 
     const fetchUserData = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:5000/api/user/fetchuser/+91${storedPhoneNumber}`
-        );
+        // Attempt to fetch from the API
+        const response = await fetch(`http://localhost:5000/api/user/fetchuser/+91${storedPhoneNumber}`);
         if (!response.ok) {
           const errorData = await response.json();
           throw new Error(errorData.message || "Error fetching user data");
@@ -46,12 +46,36 @@ const ProfilePage = ({ phoneNumber }) => {
 
         const data = await response.json();
         const formattedDob = new Date(data.dob).toISOString().split('T')[0];
+
+        // Save to Dexie database
+        await db.users.put({
+          name: data.name,
+          phoneNumber: data.phoneNumber,
+          email: data.email,
+          password: data.password,
+          areasOfInterest: data.areasOfInterest,
+          gender: data.gender,
+          dob: formattedDob,
+        });
+
         setUserData({
           ...data,
-          dob: formattedDob, // Format dob as yyyy-mm-dd for input
+          dob: formattedDob,
         });
       } catch (err) {
-        setErrorMessage(err.message);
+        // If there's an error (e.g., no network), try to load from Dexie
+        console.error(err.message);
+        try {
+          const user = await db.users.where("phoneNumber").equals(storedPhoneNumber).first();
+          if (user) {
+            setUserData(user);
+            setErrorMessage("Network error, loaded data from local storage.");
+          } else {
+            setError("User data not found in database.");
+          }
+        } catch (dbError) {
+          setError("Error accessing database.");
+        }
       } finally {
         setLoading(false);
       }
@@ -62,7 +86,7 @@ const ProfilePage = ({ phoneNumber }) => {
 
   const handleDobChange = (e) => {
     const dateValue = e.target.value;
-    setUserData({ ...userData, dob: dateValue }); // Keep the input in yyyy-mm-dd format
+    setUserData({ ...userData, dob: dateValue });
   };
 
   const getCurrentDate = () => {
@@ -70,7 +94,7 @@ const ProfilePage = ({ phoneNumber }) => {
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, '0');
     const day = String(today.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`; // Format as yyyy-mm-dd
+    return `${year}-${month}-${day}`;
   };
 
   const handleUpdate = async (e) => {
@@ -79,19 +103,19 @@ const ProfilePage = ({ phoneNumber }) => {
     setSuccessMessage("");
 
     try {
-      const response = await fetch(
-        "http://localhost:5000/api/user/updateuser/",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(userData),
-        }
-      );
+      const response = await fetch("http://localhost:5000/api/user/updateuser/", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
       const data = await response.json();
       if (data.success) {
         setSuccessMessage("User updated successfully.");
+        // Update the Dexie database with the new data
+        await db.users.put(userData);
         setShowModal(true);
       } else {
         setErrorMessage(data.msg);
@@ -117,10 +141,7 @@ const ProfilePage = ({ phoneNumber }) => {
 
   return (
     <div className="max-w-lg w-full mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
-      <button
-        onClick={() => navigate(-1)} // Go back to the previous page
-        className="flex items-center text-blue-600 mb-4"
-      >
+      <button onClick={() => navigate(-1)} className="flex items-center text-blue-600 mb-4">
         <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
         Back
       </button>
@@ -137,9 +158,7 @@ const ProfilePage = ({ phoneNumber }) => {
             type="text"
             id="name"
             value={userData.name}
-            onChange={(e) =>
-              setUserData({ ...userData, name: e.target.value })
-            }
+            onChange={(e) => setUserData({ ...userData, name: e.target.value })}
             required
             className="w-full px-3 py-2 border rounded-md"
           />
@@ -153,18 +172,13 @@ const ProfilePage = ({ phoneNumber }) => {
             type="email"
             id="email"
             value={userData.email}
-            onChange={(e) =>
-              setUserData({ ...userData, email: e.target.value })
-            }
+            onChange={(e) => setUserData({ ...userData, email: e.target.value })}
             required
             className="w-full px-3 py-2 border rounded-md"
           />
         </div>
         <div className="mb-4">
-          <label
-            className="block mb-2 text-sm font-medium"
-            htmlFor="phoneNumber"
-          >
+          <label className="block mb-2 text-sm font-medium" htmlFor="phoneNumber">
             <FontAwesomeIcon icon={faPhone} className="mr-2" />
             Phone Number
           </label>
@@ -184,9 +198,9 @@ const ProfilePage = ({ phoneNumber }) => {
           <input
             className="p-3 w-full rounded-lg border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
             type="date"
-            value={userData.dob} // Use the yyyy-mm-dd format directly
+            value={userData.dob}
             onChange={handleDobChange}
-            max={getCurrentDate()} // Disable future dates
+            max={getCurrentDate()}
           />
         </div>
         <div className="mb-4">
@@ -197,9 +211,7 @@ const ProfilePage = ({ phoneNumber }) => {
           <select
             id="gender"
             value={userData.gender}
-            onChange={(e) =>
-              setUserData({ ...userData, gender: e.target.value })
-            }
+            onChange={(e) => setUserData({ ...userData, gender: e.target.value })}
             className="w-full px-3 py-2 border rounded-md"
           >
             <option value="male">Male</option>
@@ -208,10 +220,7 @@ const ProfilePage = ({ phoneNumber }) => {
           </select>
         </div>
         <div className="mb-4">
-          <label
-            className="block mb-2 text-sm font-medium"
-            htmlFor="areasOfInterest"
-          >
+          <label className="block mb-2 text-sm font-medium" htmlFor="areasOfInterest">
             <FontAwesomeIcon icon={faClipboardList} className="mr-2" />
             Areas of Interest
           </label>
@@ -219,9 +228,7 @@ const ProfilePage = ({ phoneNumber }) => {
             type="text"
             id="areasOfInterest"
             value={userData.areasOfInterest}
-            onChange={(e) =>
-              setUserData({ ...userData, areasOfInterest: e.target.value })
-            }
+            onChange={(e) => setUserData({ ...userData, areasOfInterest: e.target.value })}
             className="w-full px-3 py-2 border rounded-md"
           />
         </div>

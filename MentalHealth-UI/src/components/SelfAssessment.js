@@ -15,6 +15,11 @@ const SelfAssessment = () => {
     question3: '',
     question4: '',
   });
+  const [showModal, setShowModal] = useState(false);
+  const closeModal = () => {
+    setShowModal(false);
+    navigate("/dashboard"); // Redirect to dashboard on closing modal
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,9 +31,7 @@ const SelfAssessment = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form Data:", formData);
-    alert("Assessment submitted");
-    navigate('/thankyou'); // Redirect after submission
+    setShowModal(true);
   };
 
   return (
@@ -249,6 +252,26 @@ const SelfAssessment = () => {
           </form>
         </Card.Body>
       </Card>
+      {showModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+            <div className="bg-white rounded-lg shadow-lg p-6 w-80 text-center">
+              <span
+                className="text-xl font-bold cursor-pointer float-right"
+                onClick={closeModal}
+              >
+                &times;
+              </span>
+              <h2 className="text-2xl font-bold mt-4">Thank You!</h2>
+              <p className="mt-2">Your assessment is submitted successfully</p>
+              <button
+                onClick={closeModal}
+                className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
     </Container>
   );
 };
