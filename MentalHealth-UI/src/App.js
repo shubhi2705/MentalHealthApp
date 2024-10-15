@@ -21,10 +21,11 @@ import SignupPage from "./components/SignupPage";
 import AuthGuard from "./AuthGuard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
+import { LanguageProvider } from './components/LanguageContext';
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   return (
+    <LanguageProvider>
     <div className="flex flex-col w-full h-screen bg-gradient-to-r from-light-blue-300 to-light-blue-50">
       <Router>
         {/* Wrap Routes inside a div with the background class */}
@@ -129,6 +130,7 @@ function App() {
         </div>
       </Router>
     </div>
+    </LanguageProvider>
   );
 }
 
