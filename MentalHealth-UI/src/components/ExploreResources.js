@@ -4,61 +4,66 @@ import Modal from "./Modal";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookOpen, faBrain, faBed, faClock, faLeaf, faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from '../Context/LanguageSelector';
 
-const resources = [
-  {
-    title: "Explore the Blogs",
-    icon: faBookOpen,
-    sublinks: [
-      { name: "Meditation", link: "https://www.headspace.com/meditation", description: "Learn about various meditation practices." },
-      { name: "Mindfulness", link: "https://www.headspace.com/mindfulness", description: "Discover the art of being present." },
-      { name: "Sleep", link: "https://www.headspace.com/sleep", description: "Explore techniques for better sleep." },
-      { name: "Mental Health", link: "https://www.headspace.com/mental-health", description: "Understand mental well-being." },
-    ],
-  },
-  {
-    title: "Mental Health Articles",
-    icon: faBrain,
-    sublinks: [
-      { name: "What is Mental Health Coaching", link: "https://www.headspace.com/mental-health-coaching", description: "An overview of mental health coaching." },
-      { name: "What Can a Coach Help Me With", link: "https://www.headspace.com/coaching-help", description: "Explore the benefits of coaching." },
-      { name: "How to Get Started with Coaching", link: "https://www.headspace.com/get-started-coaching", description: "Steps to begin your coaching journey." },
-    ],
-  },
-  {
-    title: "Meditation Articles",
-    icon: faLightbulb,
-    sublinks: [
-      { name: "What is Meditation", link: "https://www.headspace.com/what-is-meditation", description: "Learn the basics of meditation." },
-      { name: "Meditation Techniques", link: "https://www.headspace.com/meditation-techniques", description: "Different techniques to enhance your practice." },
-      { name: "How to Meditate", link: "https://www.headspace.com/how-to-meditate", description: "A guide to starting meditation." },
-    ],
-  },
-  {
-    title: "Mindfulness Articles",
-    icon: faLeaf,
-    sublinks: [
-      { name: "What is Mindfulness", link: "https://www.headspace.com/what-is-mindfulness", description: "Understanding mindfulness and its benefits." },
-      { name: "Flow State", link: "https://www.headspace.com/flow-state", description: "Achieving flow state through mindfulness." },
-      { name: "How to Be More Present", link: "https://www.headspace.com/be-more-present", description: "Techniques to enhance your presence." },
-    ],
-  },
-  {
-    title: "Sleep Articles",
-    icon: faBed,
-    sublinks: [
-      { name: "Sleep Hygiene", link: "https://www.headspace.com/sleep-hygiene", description: "Practices for better sleep hygiene." },
-      { name: "How to Sleep Better", link: "https://www.headspace.com/how-to-sleep-better", description: "Tips to improve your sleep quality." },
-      { name: "How to Fall Asleep", link: "https://www.headspace.com/how-to-fall-asleep", description: "Methods to help you fall asleep faster." },
-    ],
-  },
-];
+
 
 const ExploreResources = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState(null);
 
+  const resources = [
+    {
+      title: t('exploreBlogs'),
+      icon: faBookOpen,
+      sublinks: [
+        { name: t('meditation'), link: "https://www.headspace.com/meditation", description:t('meditationDescription')},
+        { name: t('mindfulness'), link: "https://www.headspace.com/mindfulness", description:t('mindfulnessDescription') },
+        { name:t('sleep'), link: "https://www.headspace.com/sleep", description:t('sleepDescription') },
+        { name: t('mentalHealth'), link: "https://www.headspace.com/mental-health", description: t('mentalHealthDescription')},
+      ],
+    },
+    {
+      title: t('mentalHealth'),
+      icon: faBrain,
+      sublinks: [
+        { name: t('mentalHealthCoaching'), link: "https://www.headspace.com/mental-health-coaching", description: t('coachingOverview') },
+        { name: t('coachingHelp'), link: "https://www.headspace.com/coaching-help", description: t('coachingBenefits')},
+        { name: t('gettingStartedWithCoaching'), link: "https://www.headspace.com/get-started-coaching", description: t('coachingSteps') },
+      ],
+    },
+    {
+      title: t('meditationArticles'),
+      icon: faLightbulb,
+      sublinks: [
+        { name: t('whatIsMeditation'), link: "https://www.headspace.com/what-is-meditation", description:t('meditationBasics') },
+        { name: t('meditationTechniques'), link: "https://www.headspace.com/meditation-techniques", description: t('meditationTechniquesDescription')},
+        { name:t('howToMeditate'),link: "https://www.headspace.com/how-to-meditate", description: t('meditationGuide') },
+      ],
+    },
+    {
+      title: t('mindfulnessArticles'),
+      icon: faLeaf,
+      sublinks: [
+        { name: t('whatIsMindfulness'),link: "https://www.headspace.com/what-is-mindfulness", description:t('mindfulnessBenefits') },
+        { name: t('flowState'), link: "https://www.headspace.com/flow-state", description: t('achievingFlowState') },
+        { name: t('beMorePresent'), link: "https://www.headspace.com/be-more-present", description: t('presenceTechniques') },
+      ],
+    },
+    {
+      title:t('sleepArticles'),
+      icon: faBed,
+      sublinks: [
+        { name: t('sleepHygiene'),link: "https://www.headspace.com/sleep-hygiene", description: t('betterSleepHygiene') },
+        { name: t('sleepBetter'), link: "https://www.headspace.com/how-to-sleep-better", description: t('improveSleepQuality')},
+        { name: t('fallAsleep'),link: "https://www.headspace.com/how-to-fall-asleep", description: t('fallAsleepMethods')},
+      ],
+    },
+  ];
+  
   const openModal = (article) => {
     setSelectedArticle(article);
     setIsModalOpen(true);
@@ -75,14 +80,17 @@ const ExploreResources = () => {
 
   return (
     <div className="max-w-full h-screen p-4 bg-gray-50 overflow-auto">
+       <div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 1000 }}>
+            <LanguageSelector />
+          </div>
       <button 
         onClick={handleBackToHome} 
         className="absolute bg-transparent text-blue-600 px-4 py-2 focus:outline-none hover:text-blue-800 transition"
       >
-        Back to Home
+        {t('backToHome')}
       </button>
       <h1 className="text-4xl font-bold text-center mb-8 text-blue-600">
-        Explore Resources
+        {t('exploreResources')}
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {resources.map((resource, index) => (

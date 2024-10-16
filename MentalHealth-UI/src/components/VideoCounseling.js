@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Button, Container, Row, Col, Card } from 'react-bootstrap';
 import './VideoCounseling.css';
+import LanguageSelector from '../Context/LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 const VideoCounseling = () => {
   const [isConnected, setIsConnected] = useState(false);
-
+  const { t } = useTranslation();
   const handleConnect = () => {
     setIsConnected(true);
   };
@@ -15,6 +17,9 @@ const VideoCounseling = () => {
 
   return (
     <Container className="video-counseling">
+      <div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 1000 }}>
+            <LanguageSelector />
+          </div>
       <h1 className="text-center video-title">Video Counseling Session</h1>
 
       {!isConnected ? (

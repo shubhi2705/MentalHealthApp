@@ -1,38 +1,52 @@
 // src/i18n.js
-import i18next from 'i18next';
+import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import translationEN from '../Languages/en.json';
+import translationES from '../Languages/es.json';
+import translationDE from '../Languages/de.json';
+import translationKO from '../Languages/ko.json';
+import translationZH from '../Languages/zh.json';
+import translationJA from '../Languages/ja.json';
+import translationFR from '../Languages/fr.json';
+import translationHI from '../Languages/hi.json';
+// The translations
+const resources = {
+  en: {
+    translation: translationEN,
+  },
+  es: {
+    translation: translationES,
+  },
+  fr: {
+    translation: translationFR,
+  },
+  de: {
+    translation: translationDE,
+  },
+  hi: {
+    translation: translationHI,
+  },
+  ko: {
+    translation: translationKO,
+  },
+  ja: {
+    translation: translationJA,
+  },
+  zh: {
+    translation: translationZH,
+  }
+};
 
-i18next
-  .use(initReactI18next) // passes i18next down to react-i18next
+// i18n configuration
+i18n
+  .use(initReactI18next) // passes i18n down to react-i18next
   .init({
-    resources: {
-      en: {
-        translation: {
-          title: "Your mental health matters",
-          description: "Get access to personalized mental health support.",
-          service1: "AI Chat Support",
-          service1_desc: "Our chatbot, powered by IBM Watson, provides real-time mental health assistance.",
-          service2: "Contact a Counselor",
-          service2_desc: "Connect directly with a licensed mental health counselor.",
-        }
-      },
-      es: {
-        translation: {
-          title: "Tu salud mental importa",
-          description: "Obtén acceso a apoyo de salud mental personalizado.",
-          service1: "Soporte de Chat AI",
-          service1_desc: "Nuestro chatbot, potenciado por IBM Watson, proporciona asistencia en salud mental en tiempo real.",
-          service2: "Contactar a un Consejero",
-          service2_desc: "Conéctate directamente con un consejero de salud mental con licencia.",
-        }
-      },
-      // Add more languages here...
-    },
-    lng: "en", // default language
-    fallbackLng: "en", // fallback language
+    resources,
+    lng: 'en', // default language
+    fallbackLng: 'en', // fallback language
     interpolation: {
-      escapeValue: false, // React already does escaping
-    }
+      escapeValue: false, // react already safes from xss
+    },
   });
 
-export default i18next;
+export default i18n;

@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faUser, faEnvelope, faPhone, faCalendar, faGenderless, faClipboardList } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from "../Context/LanguageSelector";
 
 const ProfilePage = ({ phoneNumber }) => {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [userData, setUserData] = useState({
@@ -29,7 +32,7 @@ const ProfilePage = ({ phoneNumber }) => {
   useEffect(() => {
     const storedPhoneNumber = sessionStorage.getItem("phoneNumber");
     if (!storedPhoneNumber) {
-      setError("Phone number not found in session storage");
+      setError(t('phoneNumberNotFound'));
       setLoading(false);
       return;
     }
@@ -41,7 +44,7 @@ const ProfilePage = ({ phoneNumber }) => {
         );
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(errorData.message || "Error fetching user data");
+          throw new Error(errorData.message || t('errorFetchingUserData'));
         }
 
         const data = await response.json();
@@ -58,7 +61,7 @@ const ProfilePage = ({ phoneNumber }) => {
     };
 
     fetchUserData();
-  }, []);
+  }, [t]);
 
   const handleDobChange = (e) => {
     const dateValue = e.target.value;
@@ -91,20 +94,20 @@ const ProfilePage = ({ phoneNumber }) => {
       );
       const data = await response.json();
       if (data.success) {
-        setSuccessMessage("User updated successfully.");
+        setSuccessMessage(t('userUpdatedSuccessfully'));
         setShowModal(true);
       } else {
         setErrorMessage(data.msg);
       }
     } catch (error) {
-      setErrorMessage("Error updating profile");
+      setErrorMessage(t('errorUpdatingProfile'));
     }
   };
 
   if (loading)
     return (
       <div className="max-w-lg w-full mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
-        <p>Loading...</p>
+        <p>{t('loading')}</p>
       </div>
     );
 
@@ -117,21 +120,24 @@ const ProfilePage = ({ phoneNumber }) => {
 
   return (
     <div className="max-w-lg w-full mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
+      <div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 1000 }}>
+        <LanguageSelector />
+      </div>
       <button
         onClick={() => navigate(-1)} // Go back to the previous page
         className="flex items-center text-blue-600 mb-4"
       >
         <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
-        Back
+        {t('back')}
       </button>
-      <h2 className="text-2xl font-bold mb-6 text-center">User Profile</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">{t('userProfile')}</h2>
       {errorMessage && <p className="text-red-500">{errorMessage}</p>}
       {successMessage && <p className="text-green-500">{successMessage}</p>}
       <form onSubmit={handleUpdate}>
         <div className="mb-4">
           <label className="block mb-2 text-sm font-medium" htmlFor="name">
             <FontAwesomeIcon icon={faUser} className="mr-2" />
-            Name
+            {t('name')}
           </label>
           <input
             type="text"
@@ -147,7 +153,7 @@ const ProfilePage = ({ phoneNumber }) => {
         <div className="mb-4">
           <label className="block mb-2 text-sm font-medium" htmlFor="email">
             <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-            Email
+            {t('email')}
           </label>
           <input
             type="email"
@@ -161,12 +167,9 @@ const ProfilePage = ({ phoneNumber }) => {
           />
         </div>
         <div className="mb-4">
-          <label
-            className="block mb-2 text-sm font-medium"
-            htmlFor="phoneNumber"
-          >
+          <label className="block mb-2 text-sm font-medium" htmlFor="phoneNumber">
             <FontAwesomeIcon icon={faPhone} className="mr-2" />
-            Phone Number
+            {t('phoneNumber')}
           </label>
           <input
             type="text"
@@ -179,7 +182,7 @@ const ProfilePage = ({ phoneNumber }) => {
         <div className="mb-4">
           <label className="block text-gray-700 font-semibold mb-2">
             <FontAwesomeIcon icon={faCalendar} className="mr-2" />
-            Date of Birth
+            {t('dateOfBirth')}
           </label>
           <input
             className="p-3 w-full rounded-lg border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -192,7 +195,7 @@ const ProfilePage = ({ phoneNumber }) => {
         <div className="mb-4">
           <label className="block mb-2 text-sm font-medium" htmlFor="gender">
             <FontAwesomeIcon icon={faGenderless} className="mr-2" />
-            Gender
+            {t('gender')}
           </label>
           <select
             id="gender"
@@ -202,18 +205,15 @@ const ProfilePage = ({ phoneNumber }) => {
             }
             className="w-full px-3 py-2 border rounded-md"
           >
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="male">{t('male')}</option>
+            <option value="female">{t('female')}</option>
+            <option value="other">{t('other')}</option>
           </select>
         </div>
         <div className="mb-4">
-          <label
-            className="block mb-2 text-sm font-medium"
-            htmlFor="areasOfInterest"
-          >
+          <label className="block mb-2 text-sm font-medium" htmlFor="areasOfInterest">
             <FontAwesomeIcon icon={faClipboardList} className="mr-2" />
-            Areas of Interest
+            {t('areasOfInterest')}
           </label>
           <input
             type="text"
@@ -229,7 +229,7 @@ const ProfilePage = ({ phoneNumber }) => {
           type="submit"
           className="w-full py-2 bg-blue-600 text-white rounded-md"
         >
-          Update Profile
+          {t('updateProfile')}
         </button>
 
         {showModal && (
@@ -241,13 +241,13 @@ const ProfilePage = ({ phoneNumber }) => {
               >
                 &times;
               </span>
-              <h2 className="text-2xl font-bold mt-4">Thank You!</h2>
-              <p className="mt-2">Profile updated successfully!</p>
+              <h2 className="text-2xl font-bold mt-4">{t('thankYou')}</h2>
+              <p className="mt-2">{t('profileUpdatedSuccessfully')}</p>
               <button
                 onClick={closeModal}
                 className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
               >
-                Close
+                {t('close')}
               </button>
             </div>
           </div>

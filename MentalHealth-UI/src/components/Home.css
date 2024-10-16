@@ -1,0 +1,178 @@
+.App {
+    text-align: center;
+    color: #333;
+    background-color: #eef6ff;
+    padding: 10px; /* Padding for the main app area */
+    font-family: 'Arial', sans-serif;
+}
+
+p {
+    margin-top: 15px;
+}
+
+.App-header {
+    background-color: #e6f7ff;
+    padding: 40px;
+    animation: fadeIn 1s ease;
+    border-radius: 8px;
+}
+
+.cta-button {
+    background-color: #003399;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.05);
+}
+
+.facts, .common-issues, .unesco-insights, .resources {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease;
+}
+
+.fact-card, .issue-card, .resource-card {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.fact-card:hover, .issue-card:hover, .resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.fact-icon, .issue-icon {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 24px; /* Adjust icon size */
+    color: #003399; /* Match the theme color */
+}
+
+h2 {
+    color: #0056b3;
+    margin-bottom: 15px; /* Space below the header */
+}
+
+.App-footer {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e6f7ff;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the icons */
+    margin: 10px 0;
+}
+
+.social-icons a {
+    margin: 0 15px; /* Space between icons */
+    color: #333;
+    font-size: 24px; /* Icon size */
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #4CAF50; /* Change color on hover */
+}
+
+.container {
+    max-width: 800px; /* Fixed width */
+    margin: 0 auto; /* Center align */
+    padding: 20px; /* Padding inside the container */
+    overflow-y: auto; /* Enable vertical scroll if content overflows */
+    height: calc(100vh - 40px); /* Adjust for header/footer height */
+}
+
+/* Hide scrollbar for Webkit browsers */
+.container::-webkit-scrollbar {
+    width: 0; /* Hide scrollbar */
+    background: transparent; /* Optional: make scrollbar background transparent */
+}
+
+/* Hide scrollbar for Firefox */
+.container {
+    scrollbar-width: none; /* Hide scrollbar */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* New styles for Common Mental Health Issues */
+.common-issues {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.issue-list {
+    display: flex;
+    flex-direction: column; /* Stack issues vertically */
+    gap: 15px; /* Space between cards */
+}
+
+.issue-card {
+    display: flex;
+    align-items: flex-start; /* Align icon and text */
+    padding: 15px;
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px;
+    background-color: #ffffff; /* Card background */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation for hover effect */
+}
+
+.issue-card:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.issue-icon {
+    margin-right: 15px; /* Space between icon and text */
+    font-size: 30px; /* Adjust icon size */
+    color: #003399; /* Match theme color */
+}
+
+.issue-content {
+    flex: 1; /* Allow content to take available space */
+}
+
+h3 {
+    color: #003399; /* Subheader color */
+    margin: 0 0 10px; /* Space below subheader */
+}

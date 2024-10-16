@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import VirtualAssistant from "./VirtualAssistant";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faClipboardCheck, faBook, faUsers, faDumbbell, faComments, faExclamationTriangle, faPeace } from '@fortawesome/free-solid-svg-icons';
+import Home from "./Home";
 
 const Dashboard = () => {
   const [hoveredLink, setHoveredLink] = useState(null);
@@ -26,8 +27,8 @@ const Dashboard = () => {
       padding: "20px",
       backgroundColor: "#eef6ff",
       display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
+      justifyContent: "center", // Center align horizontally
+      alignItems: "center", 
     },
     link: {
       display: "flex",
@@ -93,14 +94,7 @@ const Dashboard = () => {
 
       {/* Main Content */}
       <div style={styles.mainContent}>
-        <h1 style={styles.header}>
-          <FontAwesomeIcon icon={faPeace} style={{ marginRight: '10px', color: 'white', zIndex: 1 }} />
-          Welcome to YouMatter
-        </h1>
-        <p style={styles.welcomeText}>
-          We're here to support your mental health journey.
-        </p>
-        <VirtualAssistant />
+        <Home />
       </div>
     </div>
   );

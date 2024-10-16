@@ -4,36 +4,38 @@ import { Container, Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faClock, faMapMarkerAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import '../assets/Workshop.css'; // Link to the custom styles
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from '../Context/LanguageSelector';
 
 const Workshop = () => {
   const [workshops, setWorkshops] = useState([]);
+  const { t } = useTranslation();
 
-  // Add default workshops with more details
   useEffect(() => {
     const defaultWorkshops = [
       {
-        title: 'Mental Health Awareness',
-        location: 'Village Hall',
-        contact: 'John Doe',
-        date: 'October 10, 2024',
-        time: '10:00 AM - 12:00 PM',
-        description: 'A session on raising mental health awareness and reducing stigma in the community.',
+        title: t('workshopTitleMentalHealth'),
+        location: t('workshopLocationVillageHall'),
+        contact: t('workshopContactJohnDoe'),
+        date: t('workshopDate1'),
+        time: t('workshopTime1'),
+        description: t('workshopDescriptionMentalHealth'),
       },
       {
-        title: 'Stress Management',
-        location: 'Community Center',
-        contact: 'Jane Smith',
-        date: 'October 20, 2024',
-        time: '2:00 PM - 4:00 PM',
-        description: 'Learn techniques for managing stress effectively through mindfulness and relaxation exercises.',
+        title: t('workshopTitleStressManagement'),
+        location: t('workshopLocationCommunityCenter'),
+        contact: t('workshopContactJaneSmith'),
+        date: t('workshopDate2'),
+        time: t('workshopTime2'),
+        description: t('workshopDescriptionStressManagement'),
       },
       {
-        title: 'Wellness Workshop',
-        location: 'Local School',
-        contact: 'Emily Brown',
-        date: 'November 5, 2024',
-        time: '9:00 AM - 11:00 AM',
-        description: 'A workshop focused on holistic wellness practices, including yoga, meditation, and healthy living.',
+        title: t('workshopTitleWellness'),
+        location: t('workshopLocationLocalSchool'),
+        contact: t('workshopContactEmilyBrown'),
+        date: t('workshopDate3'),
+        time: t('workshopTime3'),
+        description: t('workshopDescriptionWellness'),
       },
     ];
 
@@ -43,22 +45,27 @@ const Workshop = () => {
     if (!localStorage.getItem('workshops')) {
       localStorage.setItem('workshops', JSON.stringify(defaultWorkshops));
     }
-  }, []);
+  }, [t]);
 
   return (
     <Container className="workshop-container">
-      <h1 className="workshop-title">Upcoming Workshops</h1>
-      <Button 
-        as={Link} 
-        to="/admin-signin" 
-        className="add-workshop-btn"
-        style={{ position: 'absolute', top: '20px', right: '20px' }} // Positioning the button to the right corner
-      >
-        Add New Workshop
-      </Button>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+        <h1 className="workshop-title">{t('upcomingWorkshops')}</h1>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <LanguageSelector />
+          <Button 
+            as={Link} 
+            to="/admin-signin" 
+            className="add-workshop-btn"
+            style={{ marginLeft: '20px' }} // Add margin to separate button from language selector
+          >
+            {t('addNewWorkshop')}
+          </Button>
+        </div>
+      </div>
       <div className="workshop-list">
         {workshops.length === 0 ? (
-          <p>No workshops available.</p>
+          <p>{t('noWorkshops')}</p>
         ) : (
           workshops.map((workshop, index) => (
             <Card key={index} className="workshop-card">
@@ -66,13 +73,13 @@ const Workshop = () => {
                 <Card.Title className="workshop-title">{workshop.title}</Card.Title>
                 <Card.Text className="workshop-info">
                   <FontAwesomeIcon icon={faCalendarAlt} className="me-2" />
-                  <strong>Date:</strong> {workshop.date}<br />
+                  <strong>{t('date')}:</strong> {workshop.date}<br />
                   <FontAwesomeIcon icon={faClock} className="me-2" />
-                  <strong>Time:</strong> {workshop.time}<br />
+                  <strong>{t('time')}:</strong> {workshop.time}<br />
                   <FontAwesomeIcon icon={faMapMarkerAlt} className="me-2" />
-                  <strong>Location:</strong> {workshop.location}<br />
+                  <strong>{t('location')}:</strong> {workshop.location}<br />
                   <FontAwesomeIcon icon={faUser} className="me-2" />
-                  <strong>Contact:</strong> {workshop.contact}<br />
+                  <strong>{t('contact')}:</strong> {workshop.contact}<br />
                 </Card.Text>
                 <Card.Text className="workshop-description">
                   {workshop.description}

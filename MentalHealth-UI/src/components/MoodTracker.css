@@ -1,0 +1,109 @@
+/* src/MoodTracker.css */
+.mood-tracker {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.mood-selection {
+    margin-bottom: 20px;
+}
+
+.mood-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mood-button {
+    font-size: 2rem;
+    background: #fff;
+    border: 2px solid #00796b;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.mood-button.selected {
+    background: #e0f7fa;
+}
+
+.mood-button:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.mood-form {
+    margin-bottom: 20px;
+}
+
+.note-input {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.submit-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #00796b;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-button:hover {
+    background: #005b5c;
+}
+
+.toggle-history-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #00796b;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-history-button:hover {
+    background: #005b5c;
+}
+
+.mood-history {
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    max-height: 0; /* Initially hidden */
+    opacity: 0; /* Initially transparent */
+}
+
+.mood-history.fade-in {
+    max-height: 500px; /* Arbitrary max height */
+    opacity: 1; /* Fully visible */
+}
+
+.mood-history.fade-out {
+    max-height: 0; /* Collapse */
+    opacity: 0; /* Fully transparent */
+}
+
+.mood-entry {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+}

@@ -6,6 +6,8 @@ import db from "../DB/Dexie"; // Import your Dexie database setup
 import { useAuth } from "../Authcontext"; // Import the Auth context
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faKey } from '@fortawesome/free-solid-svg-icons';
+import LanguageSelector from '../Context/LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 const SignInPage = () => {
   //const { login } = useAuth(); // Get the login function from Auth context
@@ -16,7 +18,7 @@ const SignInPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const closeModal = () => {
     setShowModal(false);
     navigate("/dashboard"); // Redirect to dashboard on closing modal
@@ -96,7 +98,8 @@ const SignInPage = () => {
       setMessage("Error fetching from local DB: " + error.message);
     }
   };
-
+  const sending=t('sending');
+  const requestOtp=t('requestOtp');
   const updatenewOTPinDB = async () => {
     try {
       var phoneNumber_new = `+91${phoneNumber}`;
@@ -118,8 +121,11 @@ const SignInPage = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen py-10">
+    <div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 1000 }}>
+            <LanguageSelector />
+          </div>
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h2 className="text-2xl font-bold mb-4">Sign In</h2>
+        <h2 className="text-2xl font-bold mb-4">{t('signIn')}</h2>
   
         <div className="flex items-center border border-gray-300 rounded mb-4">
           <span className="p-2">
@@ -146,7 +152,7 @@ const SignInPage = () => {
             loading ? "pointer-events-none" : ""
           }`}
         >
-          {loading ? "Sending..." : "Request OTP"}
+          {loading ? sending : requestOtp}
         </a>
   
         {isOtpSent && (
@@ -175,10 +181,10 @@ const SignInPage = () => {
   
         {/* Link for New Users */}
         <p className="mt-4 text-center">
-          New user?
+         {t('newUser')}
           <a href="/signup" className="text-blue-500 hover:underline">
             {" "}
-            Please sign up
+            {t('pleaseSignUp')}
           </a>
         </p>
   

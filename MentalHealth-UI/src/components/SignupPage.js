@@ -4,6 +4,8 @@ import db from '../DB/Dexie'; // Import your Dexie database setup
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faPhone, faCalendarAlt, faLock, faListAlt, faMars, faVenus, faTransgender } from '@fortawesome/free-solid-svg-icons';
+import LanguageSelector from '../Context/LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 const SignupPage = () => {
     const [name, setName] = useState('');
@@ -18,10 +20,13 @@ const SignupPage = () => {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
+    const { t } = useTranslation();
+
     const closeModal = () => {
         setShowModal(false);
         navigate("/signin");
     };
+  
 
     const formatDate = (dateString) => {
         const [year, month, day] = dateString.split('-');
@@ -87,13 +92,16 @@ const SignupPage = () => {
 
     return (
         <div className="max-w-lg w-full mx-auto my-10 p-6 bg-white rounded-lg shadow-md ">
-            <h2 className="text-2xl font-bold mb-6">User Signup</h2>
+              <div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 1000 }}>
+            <LanguageSelector />
+          </div>
+            <h2 className="text-2xl font-bold mb-6">{t('signup')}</h2>
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}
             {successMessage && <p className="text-green-500">{successMessage}</p>}
             <form onSubmit={handleSignup}>
                 <div className="mb-4">
                     <label className="block mb-2 text-sm font-medium" htmlFor="name">
-                        <FontAwesomeIcon icon={faUser} className="mr-2" /> Name
+                        <FontAwesomeIcon icon={faUser} className="mr-2" /> {t('name')}
                     </label>
                     <input
                         type="text"
@@ -106,7 +114,7 @@ const SignupPage = () => {
                 </div>
                 <div className="mb-4">
                     <label className="block mb-2 text-sm font-medium" htmlFor="email">
-                        <FontAwesomeIcon icon={faEnvelope} className="mr-2" /> Email
+                        <FontAwesomeIcon icon={faEnvelope} className="mr-2" /> {t('email')}
                     </label>
                     <input
                         type="email"
@@ -119,7 +127,7 @@ const SignupPage = () => {
                 </div>
                 <div className="mb-4">
                     <label className="block mb-2 text-sm font-medium" htmlFor="phoneNumber">
-                        <FontAwesomeIcon icon={faPhone} className="mr-2" /> Phone Number
+                        <FontAwesomeIcon icon={faPhone} className="mr-2" /> {t('phoneNumber')}
                     </label>
                     <input
                         type="text"
@@ -132,7 +140,7 @@ const SignupPage = () => {
                 </div>
                 <div className="mb-4">
                     <label className="block mb-2 text-sm font-medium" htmlFor="dob">
-                        <FontAwesomeIcon icon={faCalendarAlt} className="mr-2" /> Date of Birth
+                        <FontAwesomeIcon icon={faCalendarAlt} className="mr-2" /> {t('dob')}
                     </label>
                     <input
                         type="date"
@@ -158,7 +166,7 @@ const SignupPage = () => {
                 </div> */}
                  <div className="mb-4">
                     <label className="block mb-2 text-sm font-medium" htmlFor="gender">
-                        Gender
+                    {t('gender')}
                     </label>
                     <select
                         id="gender"
@@ -173,7 +181,7 @@ const SignupPage = () => {
                 </div>
                 <div className="mb-4">
                     <label className="block mb-2 text-sm font-medium" htmlFor="areasOfInterest">
-                        <FontAwesomeIcon icon={faListAlt} className="mr-2" /> Areas of Interest
+                        <FontAwesomeIcon icon={faListAlt} className="mr-2" /> {t('aoi')}
                     </label>
                     <input
                         type="text"
@@ -183,21 +191,20 @@ const SignupPage = () => {
                         className="w-full px-3 py-2 border rounded-md"
                     />
                 </div>
-               
-                <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded-md">Sign Up</button>
+                <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded-md">{t('signUpBtn')}</button>
                 
                 {/* Link to Sign In Page */}
                 <p className="mt-4 text-center">
-                    Already have an account? 
-                    <a href="/signin" className="text-blue-500 hover:underline"> Sign In</a>
+                    {t('alreadyUser')}
+                    <a href="/signin" className="text-blue-500 hover:underline"> {t('signInBtn')}</a>
                 </p>
 
                 {showModal && (
                     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
                         <div className="bg-white rounded-lg shadow-lg p-6 w-80 text-center">
                             <span className="text-xl font-bold cursor-pointer float-right" onClick={closeModal}>&times;</span>
-                            <h2 className="text-2xl font-bold mt-4">Thank You!</h2>
-                            <p className="mt-2">Signup is successfully done.</p>
+                            <h2 className="text-2xl font-bold mt-4">{t('thankyou')}</h2>
+                            <p className="mt-2">{t('signUpSuccess')}</p>
                             <button 
                                 onClick={closeModal} 
                                 className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
