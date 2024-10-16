@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import VirtualAssistant from "./VirtualAssistant";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faClipboardCheck, faBook, faUsers, faDumbbell, faComments, faExclamationTriangle, faPeace } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
+import { faUser, faClipboardCheck, faBook, faUsers, faDumbbell, faComments, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import Home from "./Home";
 
 const Dashboard = () => {
+  const { t } = useTranslation();
   const [hoveredLink, setHoveredLink] = useState(null);
 
   const styles = {
@@ -27,7 +29,7 @@ const Dashboard = () => {
       padding: "20px",
       backgroundColor: "#eef6ff",
       display: "flex",
-      justifyContent: "center", // Center align horizontally
+      justifyContent: "center",
       alignItems: "center", 
     },
     link: {
@@ -43,8 +45,8 @@ const Dashboard = () => {
     },
     linkHover: {
       color: "#ffcc00",
-      backgroundColor: "rgba(255, 255, 255, 0.1)", // Light background on hover
-      transform: "scale(1.05)", // Slightly enlarge the link
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
+      transform: "scale(1.05)",
     },
     header: {
       fontSize: "24px",
@@ -62,18 +64,17 @@ const Dashboard = () => {
 
   return (
     <div style={styles.container}>
-      {/* Sidebar */}
       <div style={styles.sidebar}>
-        <h2>Dashboard</h2>
+        <h2>{t('dashboard.title')}</h2>
         <nav>
           {[
-            { path: "/profile", title: "Profile", icon: faUser },
-            { path: "/selfAssessment", title: "Self Assessment", icon: faClipboardCheck },
-            { path: "/resources", title: "Resources", icon: faBook },
-            { path: "/workshops", title: "Workshops", icon: faUsers },
-            { path: "/exercises", title: "Exercises", icon: faDumbbell },
-            { path: "/counseling", title: "Counseling", icon: faComments },
-            { path: "/emergency", title: "Emergency", icon: faExclamationTriangle },
+            { path: "/profile", title: t('dashboard.profile'), icon: faUser },
+            { path: "/selfAssessment", title: t('dashboard.selfAssessment'), icon: faClipboardCheck },
+            { path: "/resources", title: t('dashboard.resources'), icon: faBook },
+            { path: "/workshops", title: t('dashboard.workshops'), icon: faUsers },
+            { path: "/exercises", title: t('dashboard.exercises'), icon: faDumbbell },
+            { path: "/counseling", title: t('dashboard.counseling'), icon: faComments },
+            { path: "/emergency", title: t('dashboard.emergency'), icon: faExclamationTriangle },
           ].map((link, index) => (
             <Link
               key={index}
@@ -92,7 +93,6 @@ const Dashboard = () => {
         </nav>
       </div>
 
-      {/* Main Content */}
       <div style={styles.mainContent}>
         <Home />
       </div>

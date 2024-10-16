@@ -12,8 +12,8 @@
       "newUser":"New User",
       "requestOtp":"Request OTP",
       "pleaseSignUp":"Please sign up",
-      "dashboard":"Dasboard",
       "profile":"Profile",
+      "suggestedSolution":"Suggested Solution",
       "selfAssess":"Self Assessment",
       "resources":"Resources",
       "workshops":"Workshops",
@@ -166,6 +166,68 @@
   "helplineBefrienders": "Befrienders Worldwide",
   "helplineVarious": "Various Helplines",
   "helplineLocalEmergency": "Local Emergency Services",
-  "helplineCall112": "Call 112"
+  "helplineCall112": "Call 112",
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome to your Dashboard",
+    "profile": "Profile",
+    "selfAssessment": "Self Assessment",
+    "resources": "Resources",
+    "workshops": "Workshops",
+    "exercises": "Exercises",
+    "counseling": "Counseling",
+    "emergency": "Emergency"
+  },
+  "header": {
+        "title": "Your Mental Health Matters",
+        "subtitle": "Explore, Understand, and Improve Your Mental Well-Being."
+    },
+    "facts": {
+        "title": "Did You Know?",
+        "items": [
+            "1 in 4 people will experience a mental health problem in their lifetime.",
+            "Mental health issues are among the leading causes of disability worldwide.",
+            "Early intervention can significantly improve outcomes for mental health disorders.",
+            "Talking about mental health can help reduce stigma and encourage others to seek help.",
+            "Positive mental health is essential for overall well-being and life satisfaction.",
+            "Social connections are vital for good mental health and can act as a buffer against stress."
+        ]
+    },
+    "issues": {
+        "title": "Common Mental Health Issues",
+        "items": [
+            {
+                "title": "Anxiety Disorders",
+                "description": "Characterized by excessive fear or anxiety.",
+                "solution": "Practice mindfulness and seek therapy."
+            },
+            {
+                "title": "Depression",
+                "description": "A mood disorder that affects how you feel.",
+                "solution": "Regular exercise and professional help."
+            },
+            {
+                "title": "Stress",
+                "description": "The body’s reaction to a challenge or demand.",
+                "solution": "Relaxation techniques and time management."
+            }
+        ]
+    },
+    "unesco": {
+        "title": "Insights from UNESCO",
+        "items": [
+            "Globally, mental health problems are on the rise, with an estimated 264 million people suffering from depression.",
+            "Lack of mental health services contributes to stigma and discrimination.",
+            "Many individuals face barriers to accessing mental health services, including financial constraints and insufficient healthcare infrastructure.",
+            "Early identification and intervention in mental health issues can significantly improve outcomes.",
+            "Educational institutions play a vital role in promoting mental health awareness and providing supportive environments.",
+            "A holistic approach, integrating mental health into broader health initiatives, is essential for effective support."
+        ]
+    },
+    "cta": "Learn More About Mental Health Resources",
+    "footer": {
+        "contact": "Contact Us: info@mentalhealthapp.com",
+        "follow": "Follow us on social media"
+    }
  }
   

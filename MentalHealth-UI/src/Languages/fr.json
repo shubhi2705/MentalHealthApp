@@ -12,7 +12,6 @@
     "newUser": "Nouvel utilisateur",
     "requestOtp": "Demander un OTP",
     "pleaseSignUp": "Veuillez vous inscrire",
-    "dashboard": "Tableau de bord",
     "profile": "Profil",
     "selfAssess": "Auto-évaluation",
     "resources": "Ressources",
@@ -166,5 +165,69 @@
     "helplineBefrienders": "Befrienders Worldwide",
     "helplineVarious": "Différentes lignes d'assistance",
     "helplineLocalEmergency": "Services d'urgence locaux",
-    "helplineCall112": "Appelez le 112"
+    "helplineCall112": "Appelez le 112",
+
+    "header": {
+        "title": "Votre santé mentale est importante",
+        "subtitle": "Explorez, comprenez et améliorez votre bien-être mental."
+    },
+    "facts": {
+        "title": "Saviez-vous que ?",
+        "items": [
+            "1 personne sur 4 éprouvera un problème de santé mentale au cours de sa vie.",
+            "Les problèmes de santé mentale figurent parmi les principales causes de handicap dans le monde.",
+            "L'intervention précoce peut améliorer considérablement les résultats des troubles mentaux.",
+            "Parler de la santé mentale peut aider à réduire la stigmatisation et encourager les autres à chercher de l'aide.",
+            "Une santé mentale positive est essentielle pour le bien-être général et la satisfaction dans la vie.",
+            "Les connexions sociales sont vitales pour une bonne santé mentale et peuvent agir comme un tampon contre le stress."
+        ]
+    },
+    "issues": {
+        "title": "Problèmes courants de santé mentale",
+        "items": [
+            {
+                "title": "Troubles de l'anxiété",
+                "description": "Caractérisés par une peur ou une anxiété excessive.",
+                "solution": "Pratiquez la pleine conscience et consultez un thérapeute."
+            },
+            {
+                "title": "Dépression",
+                "description": "Un trouble de l'humeur qui affecte vos émotions.",
+                "solution": "Exercice régulier et aide professionnelle."
+            },
+            {
+                "title": "Stress",
+                "description": "La réaction du corps face à un défi ou une exigence.",
+                "solution": "Techniques de relaxation et gestion du temps."
+            }
+        ]
+    },
+    "unesco": {
+        "title": "Perspectives de l'UNESCO",
+        "items": [
+            "À l'échelle mondiale, les problèmes de santé mentale sont en augmentation, avec environ 264 millions de personnes souffrant de dépression.",
+            "Le manque de services de santé mentale contribue à la stigmatisation et à la discrimination.",
+            "De nombreuses personnes font face à des obstacles pour accéder aux services de santé mentale, notamment des contraintes financières et une infrastructure de santé insuffisante.",
+            "L'identification précoce et l'intervention dans les problèmes de santé mentale peuvent considérablement améliorer les résultats.",
+            "Les établissements d'enseignement jouent un rôle vital dans la promotion de la sensibilisation à la santé mentale et la fourniture d'environnements de soutien.",
+            "Une approche holistique, intégrant la santé mentale dans des initiatives de santé plus larges, est essentielle pour un soutien efficace."
+        ]
+    },
+    "cta": "En savoir plus sur les ressources en santé mentale",
+    "footer": {
+        "contact": "Contactez-nous : info@mentalhealthapp.com",
+        "follow": "Suivez-nous sur les réseaux sociaux"
+    },
+    "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue sur votre tableau de bord",
+    "profile": "Profil",
+    "selfAssessment": "Auto-évaluation",
+    "resources": "Ressources",
+    "workshops": "Ateliers",
+    "exercises": "Exercices",
+    "counseling": "Conseil",
+    "emergency": "Urgence"
+  },
+  "suggestedSolution": "Solution Suggérée"
 }
