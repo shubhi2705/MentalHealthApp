@@ -1,87 +1,99 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './Home.css'; // Import your CSS file for styling
 import { FaFacebook, FaLinkedin, FaInstagram } from 'react-icons/fa';
-import { FaBrain, FaHeart, FaExclamationTriangle, FaMedkit } from 'react-icons/fa';
+import { FaBrain, FaHeart, FaExclamationTriangle, FaMedkit, FaComments, FaSmile, FaUsers } from 'react-icons/fa';
+import LanguageSelector from "../Context/LanguageSelector";
 
 const Home = () => {
+    const { t } = useTranslation();
+
+    const handleLearnMoreClick = () => {
+        window.open('https://www.unesco.org/en/education/sustainable-development/mental-health', '_blank');
+    };
+
+    // Facts about mental health
+    const facts = t('facts.items', { returnObjects: true }).map((item, index) => ({
+        icon: <FaExclamationTriangle className="fact-icon" />,
+        text: item
+    }));
+
+    // Common mental health issues
+    const issues = t('issues.items', { returnObjects: true }).map((issue, index) => ({
+        icon: <FaExclamationTriangle className="issue-icon" />,
+        title: issue.title,
+        description: issue.description,
+        solution: issue.solution
+    }));
+
+    // Insights from UNESCO
+    const unescoInsights = t('unesco.items', { returnObjects: true });
+
     return (
         <div className="App">
-          <div className="container"> {/* Fixed-width container */}
-            <header className="App-header">
-              <h1>Your Mental Health Matters</h1>
-              <p>Explore, Understand, and Improve Your Mental Well-Being.</p>
-            </header>
-        
-            <section className="facts">
-              <h2>Did You Know?</h2>
-              <div className="fact-card">
-                <FaExclamationTriangle className="fact-icon" />
-                <p>1 in 4 people will experience a mental health problem in their lifetime.</p>
-              </div>
-              <div className="fact-card">
-                <FaBrain className="fact-icon" />
-                <p>Mental health issues are among the leading causes of disability worldwide.</p>
-              </div>
-              <div className="fact-card">
-                <FaHeart className="fact-icon" />
-                <p>Early intervention can significantly improve outcomes for mental health disorders.</p>
-              </div>
-            </section>
-        
-            <section className="common-issues">
-    <h2>Common Mental Health Issues</h2>
-    <div className="issue-list">
-        <div className="issue-card">
-            <FaExclamationTriangle className="issue-icon" />
-            <div className="issue-content">
-                <h3>Anxiety Disorders</h3>
-                <p>Characterized by excessive fear or anxiety.</p>
-                <p>Suggested Solution: Practice mindfulness and seek therapy.</p>
-            </div>
-        </div>
-        <div className="issue-card">
-            <FaHeart className="issue-icon" />
-            <div className="issue-content">
-                <h3>Depression</h3>
-                <p>A mood disorder that affects how you feel.</p>
-                <p>Suggested Solution: Regular exercise and professional help.</p>
-            </div>
-        </div>
-        <div className="issue-card">
-            <FaMedkit className="issue-icon" />
-            <div className="issue-content">
-                <h3>Stress</h3>
-                <p>The body’s reaction to a challenge or demand.</p>
-                <p>Suggested Solution: Relaxation techniques and time management.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-        
-            <section className="unesco-insights">
-              <h2>Insights from UNESCO</h2>
-              <p>Globally, mental health problems are on the rise, with an estimated 264 million people suffering from depression.</p>
-              <p>Lack of mental health services contributes to stigma and discrimination.</p>
-              <button className="cta-button">Learn More About Mental Health Resources</button>
-            </section>
-        
-            <footer className="App-footer">
-              <p>Contact Us: info@mentalhealthapp.com</p>
-              <div className="social-icons">
-                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                  <FaFacebook />
-                </a>
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                  <FaLinkedin />
-                </a>
-                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                  <FaInstagram />
-                </a>
-              </div>
-              <p>Follow us on social media</p>
-            </footer>
+            <div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 1000 }}>
+            <LanguageSelector />
           </div>
+            <div className="container"> {/* Fixed-width container */}
+                <header className="App-header">
+                    <h1>{t('header.title')}</h1>
+                    <p>{t('header.subtitle')}</p>
+                </header>
+        
+                <div className="flex-container"> {/* Flex container for sections */}
+                    <section className="facts flex-item">
+                        <h2>{t('facts.title')}</h2>
+                        {facts.map((fact, index) => (
+                            <div key={index} className="fact-card">
+                                {fact.icon}
+                                <p>{fact.text}</p>
+                            </div>
+                        ))}
+                    </section>
+        
+                    <section className="common-issues flex-item">
+                        <h2>{t('issues.title')}</h2>
+                        <div className="issue-list">
+                            {issues.map((issue, index) => (
+                                <div key={index} className="issue-card">
+                                    {issue.icon}
+                                    <div className="issue-content">
+                                        <h3>{issue.title}</h3>
+                                        <p>{issue.description}</p>
+                                        <p><strong>{t('suggestedSolution')}-</strong> {issue.solution}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section className="unesco-insights flex-item">
+                        <h2>{t('unesco.title')}</h2>
+                        {unescoInsights.map((insight, index) => (
+                            <p key={index}>{insight}</p>
+                        ))}
+                        <button className="cta-button" onClick={handleLearnMoreClick}>
+                            {t('cta')}
+                        </button>
+                    </section>
+                </div>
+        
+                <footer className="App-footer">
+                    <p>{t('footer.contact')}</p>
+                    <div className="social-icons">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                            <FaFacebook />
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                            <FaLinkedin />
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                            <FaInstagram />
+                        </a>
+                    </div>
+                    <p>{t('footer.follow')}</p>
+                </footer>
+            </div>
         </div>
     );
 };

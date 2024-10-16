@@ -12,7 +12,6 @@
     "newUser": "Neuer Benutzer",
     "requestOtp": "OTP anfordern",
     "pleaseSignUp": "Bitte registrieren Sie sich",
-    "dashboard": "Dashboard",
     "profile": "Profil",
     "selfAssess": "Selbstbewertung",
     "resources": "Ressourcen",
@@ -166,5 +165,68 @@
     "helplineBefrienders": "Befrienders Worldwide",
     "helplineVarious": "Verschiedene Hotlines",
     "helplineLocalEmergency": "Lokale Notfalldienste",
-    "helplineCall112": "Rufen Sie 112 an"
+    "helplineCall112": "Rufen Sie 112 an",
+    "header": {
+        "title": "Ihre psychische Gesundheit ist wichtig",
+        "subtitle": "Erforschen, Verstehen und Verbessern Sie Ihr psychisches Wohlbefinden."
+    },
+    "facts": {
+        "title": "Wussten Sie schon?",
+        "items": [
+            "Jeder vierte Mensch wird in seinem Leben eine psychische Gesundheitsproblematik erleben.",
+            "Psychische Gesundheitsprobleme gehören weltweit zu den häufigsten Ursachen für Behinderungen.",
+            "Frühzeitiges Eingreifen kann die Ergebnisse bei psychischen Störungen erheblich verbessern.",
+            "Über psychische Gesundheit zu sprechen, kann dazu beitragen, Stigmatisierung abzubauen und andere zu ermutigen, Hilfe zu suchen.",
+            "Eine positive psychische Gesundheit ist entscheidend für das allgemeine Wohlbefinden und die Lebenszufriedenheit.",
+            "Soziale Verbindungen sind entscheidend für eine gute psychische Gesundheit und können als Puffer gegen Stress wirken."
+        ]
+    },
+    "issues": {
+        "title": "Häufige psychische Gesundheitsprobleme",
+        "items": [
+            {
+                "title": "Angststörungen",
+                "description": "Gekennzeichnet durch übermäßige Angst oder Besorgnis.",
+                "solution": "Praktizieren Sie Achtsamkeit und suchen Sie Therapie."
+            },
+            {
+                "title": "Depression",
+                "description": "Eine Stimmungsstörung, die Ihr Empfinden beeinflusst.",
+                "solution": "Regelmäßige Bewegung und professionelle Hilfe."
+            },
+            {
+                "title": "Stress",
+                "description": "Die Reaktion des Körpers auf eine Herausforderung oder Anforderung.",
+                "solution": "Entspannungstechniken und Zeitmanagement."
+            }
+        ]
+    },
+    "unesco": {
+        "title": "Einblicke von der UNESCO",
+        "items": [
+            "Weltweit nehmen psychische Gesundheitsprobleme zu, mit schätzungsweise 264 Millionen Menschen, die an Depressionen leiden.",
+            "Mangel an psychischen Gesundheitsdiensten trägt zu Stigmatisierung und Diskriminierung bei.",
+            "Viele Menschen stehen vor Barrieren beim Zugang zu psychischen Gesundheitsdiensten, einschließlich finanzieller Einschränkungen und unzureichender Gesundheitsinfrastruktur.",
+            "Frühe Identifizierung und Intervention bei psychischen Problemen können die Ergebnisse erheblich verbessern.",
+            "Bildungseinrichtungen spielen eine wichtige Rolle bei der Förderung des Bewusstseins für psychische Gesundheit und der Bereitstellung unterstützender Umgebungen.",
+            "Ein ganzheitlicher Ansatz, der psychische Gesundheit in breitere Gesundheitsinitiativen integriert, ist für eine effektive Unterstützung unerlässlich."
+        ]
+    },
+    "cta": "Erfahren Sie mehr über psychische Gesundheitsressourcen",
+    "footer": {
+        "contact": "Kontakt: info@mentalhealthapp.com",
+        "follow": "Folgen Sie uns in den sozialen Medien"
+    },
+    "dashboard": {
+        "title": "Instrumententafel",
+        "welcome": "Willkommen auf deinem Dashboard",
+        "profile": "Profil",
+        "selfAssessment": "Selbsteinschätzung",
+        "resources": "Ressourcen",
+        "workshops": "Workshops",
+        "exercises": "Übungen",
+        "counseling": "Beratung",
+        "emergency": "Notfall"
+      },
+      "suggestedSolution": "Vorgeschlagene Lösung"
 }

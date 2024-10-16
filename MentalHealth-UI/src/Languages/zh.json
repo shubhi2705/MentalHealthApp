@@ -12,7 +12,6 @@
     "newUser": "新用户",
     "requestOtp": "请求OTP",
     "pleaseSignUp": "请注册",
-    "dashboard": "仪表板",
     "profile": "个人资料",
     "selfAssess": "自我评估",
     "resources": "资源",
@@ -166,5 +165,68 @@
     "helplineBefrienders": "Befrienders Worldwide",
     "helplineVarious": "各种热线",
     "helplineLocalEmergency": "当地紧急服务",
-    "helplineCall112": "拨打112"
+    "helplineCall112": "拨打112",
+    "header": {
+        "title": "你的心理健康很重要",
+        "subtitle": "探索、理解并改善你的心理健康。"
+    },
+    "facts": {
+        "title": "你知道吗？",
+        "items": [
+            "四分之一的人在一生中会经历心理健康问题。",
+            "心理健康问题是全球主要的残疾原因之一。",
+            "早期干预可以显著改善心理健康障碍的结果。",
+            "谈论心理健康可以帮助减少污名化，并鼓励他人寻求帮助。",
+            "积极的心理健康对整体幸福和生活满意度至关重要。",
+            "社交联系对良好的心理健康至关重要，并且可以作为压力的缓冲剂。"
+        ]
+    },
+    "issues": {
+        "title": "常见的心理健康问题",
+        "items": [
+            {
+                "title": "焦虑障碍",
+                "description": "以过度的恐惧或焦虑为特征。",
+                "solution": "练习正念和寻求治疗。"
+            },
+            {
+                "title": "抑郁症",
+                "description": "一种影响你情绪的心境障碍。",
+                "solution": "定期锻炼和专业帮助。"
+            },
+            {
+                "title": "压力",
+                "description": "身体对挑战或要求的反应。",
+                "solution": "放松技巧和时间管理。"
+            }
+        ]
+    },
+    "unesco": {
+        "title": "联合国教科文组织的见解",
+        "items": [
+            "全球心理健康问题正在上升，约有2.64亿人患有抑郁症。",
+            "缺乏心理健康服务导致污名化和歧视。",
+            "许多人面临获得心理健康服务的障碍，包括财务限制和医疗基础设施不足。",
+            "心理健康问题的早期识别和干预可以显著改善结果。",
+            "教育机构在促进心理健康意识和提供支持性环境方面发挥着重要作用。",
+            "将心理健康融入更广泛的健康倡议中是一种有效支持的必要条件。"
+        ]
+    },
+    "cta": "了解更多心理健康资源",
+    "footer": {
+        "contact": "联系方式: info@mentalhealthapp.com",
+        "follow": "在社交媒体上关注我们"
+    },
+    "dashboard": {
+    "title": "仪表板",
+    "welcome": "欢迎来到您的仪表板",
+    "profile": "个人资料",
+    "selfAssessment": "自我评估",
+    "resources": "资源",
+    "workshops": "研讨会",
+    "exercises": "锻炼",
+    "counseling": "咨询",
+    "emergency": "紧急情况"
+  },
+  "suggestedSolution": "建议的解决方案"
 }

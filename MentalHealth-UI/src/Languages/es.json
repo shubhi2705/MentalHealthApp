@@ -12,7 +12,6 @@
     "newUser":"Nuevo Usuario",
     "requestOtp":"Solicitar OTP",
     "pleaseSignUp":"Por favor, regístrate",
-    "dashboard":"Tablero",
     "profile":"Perfil",
     "selfAssess":"Autoevaluación",
     "resources":"Recursos",
@@ -166,5 +165,68 @@
     "helplineBefrienders": "Befrienders Worldwide",
     "helplineVarious": "Varios Números de Ayuda",
     "helplineLocalEmergency": "Servicios de Emergencia Locales",
-    "helplineCall112": "Llama al 112"
+    "helplineCall112": "Llama al 112",
+    "header": {
+        "title": "Tu salud mental es importante",
+        "subtitle": "Explora, entiende y mejora tu bienestar mental."
+    },
+    "facts": {
+        "title": "¿Sabías que?",
+        "items": [
+            "1 de cada 4 personas experimentará un problema de salud mental en su vida.",
+            "Los problemas de salud mental están entre las principales causas de discapacidad en todo el mundo.",
+            "La intervención temprana puede mejorar significativamente los resultados de los trastornos mentales.",
+            "Hablar sobre la salud mental puede ayudar a reducir el estigma y alentar a otros a buscar ayuda.",
+            "Una salud mental positiva es esencial para el bienestar general y la satisfacción en la vida.",
+            "Las conexiones sociales son vitales para una buena salud mental y pueden actuar como un amortiguador contra el estrés."
+        ]
+    },
+    "issues": {
+        "title": "Problemas comunes de salud mental",
+        "items": [
+            {
+                "title": "Trastornos de ansiedad",
+                "description": "Caracterizados por miedo o ansiedad excesiva.",
+                "solution": "Practica la atención plena y busca terapia."
+            },
+            {
+                "title": "Depresión",
+                "description": "Un trastorno del estado de ánimo que afecta cómo te sientes.",
+                "solution": "Ejercicio regular y ayuda profesional."
+            },
+            {
+                "title": "Estrés",
+                "description": "La reacción del cuerpo ante un desafío o demanda.",
+                "solution": "Técnicas de relajación y gestión del tiempo."
+            }
+        ]
+    },
+    "unesco": {
+        "title": "Perspectivas de la UNESCO",
+        "items": [
+            "A nivel mundial, los problemas de salud mental están en aumento, con aproximadamente 264 millones de personas que sufren de depresión.",
+            "La falta de servicios de salud mental contribuye al estigma y la discriminación.",
+            "Muchas personas enfrentan barreras para acceder a servicios de salud mental, incluidas limitaciones financieras e infraestructura de salud insuficiente.",
+            "La identificación temprana y la intervención en problemas de salud mental pueden mejorar significativamente los resultados.",
+            "Las instituciones educativas juegan un papel vital en la promoción de la concienciación sobre la salud mental y la provisión de entornos de apoyo.",
+            "Un enfoque holístico, que integre la salud mental en iniciativas de salud más amplias, es esencial para un apoyo efectivo."
+        ]
+    },
+    "cta": "Obtén más información sobre recursos de salud mental",
+    "footer": {
+        "contact": "Contáctanos: info@mentalhealthapp.com",
+        "follow": "Síguenos en las redes sociales"
+    },
+    "dashboard": {
+        "title": "Tablero",
+        "welcome": "Bienvenido a tu tablero",
+        "profile": "Perfil",
+        "selfAssessment": "Autoevaluación",
+        "resources": "Recursos",
+        "workshops": "Talleres",
+        "exercises": "Ejercicios",
+        "counseling": "Consejería",
+        "emergency": "Emergencia"
+      },
+       "suggestedSolution": "Solución Sugerida"
 }

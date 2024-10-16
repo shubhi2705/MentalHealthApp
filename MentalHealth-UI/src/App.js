@@ -18,7 +18,6 @@ import TTS from "./components/TTS";
 import Dashboard from "./components/Dashboard";
 import SignupPage from "./components/SignupPage";
 import AuthGuard from "./AuthGuard";
-import LanguageSelector from "./Context/LanguageSelector";
 import { LanguageProvider } from './Context/LanguageContext';
 import Home from "./components/Home";
 
@@ -114,7 +113,17 @@ function App() {
                   <Home />
                 </AuthGuard>
               }
+              
             />
+            {/* <Route
+              path="/moodtracker"
+              element={
+                <AuthGuard>
+                  <MoodTracker />
+                </AuthGuard>
+              }
+              
+            /> */}
           </Routes>
 
           {/* STT and TTS buttons in the top right corner */}
