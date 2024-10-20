@@ -5,6 +5,10 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const SpeechToTextV1 = require('ibm-watson/speech-to-text/v1');
 const TextToSpeechV1 = require('ibm-watson/text-to-speech/v1');
 const AssistantV2 = require('ibm-watson/assistant/v2');
+const bodyParser = require('body-parser');
+const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1');
+
+
 const fs = require('fs');
 
 const app = express();
@@ -13,6 +17,17 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
+
+app.use(bodyParser.json());
+
+// Configure the Watson NLU API
+const nlu = new NaturalLanguageUnderstandingV1({
+  version: '2021-08-01', // Use the latest API version
+  authenticator: new IamAuthenticator({
+    apikey: 'iZyf23wzJvKuZ2BUwRaHJ7WVzOe2BKMEESRRaTRxLor2', // Replace with your API key
+  }),
+  serviceUrl: 'https://api.jp-tok.natural-language-understanding.watson.cloud.ibm.com/instances/39aae3a4-a51f-4cff-90b4-b239fcf9acdf/v1/analyze?version=2019-07-12', // Replace with your Watson service URL
+});
 
 // Watson STT setup
 const speechToText = new SpeechToTextV1({
@@ -39,6 +54,24 @@ const assistant = new AssistantV2({
   serviceUrl: process.env.ASSISTANT_URL,
 });
 
+
+// Endpoint for sentiment analysis
+app.post('/analyze-sentiment', async (req, res) => {
+  const { text } = req.body;
+
+  try {
+    const analysis = await nlu.analyze({
+      text: text,
+      features: {
+        sentiment: {},
+      },
+    });
+    res.json(analysis.result);
+  } catch (error) {
+    console.error('Error with Watson NLU:', error);
+    res.status(500).json({ error: 'Failed to analyze sentiment' });
+  }
+});
 // Route to handle Speech to Text
 app.post('/api/stt', (req, res) => {
   const audio = req.body.audio;
