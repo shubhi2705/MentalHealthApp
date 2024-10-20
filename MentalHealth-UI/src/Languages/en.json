@@ -46,7 +46,12 @@
     "breathing_exercise_description": "A guided breathing exercise to help you relax and center your thoughts.",
     "breathing_exercise_instructions": "1. Sit or lie down in a comfortable position.\n2. Close your eyes and take a deep breath through your nose, feeling your lungs expand.\n3. Hold your breath for a moment, then slowly exhale through your mouth.\n4. Repeat this process for the next 5-10 minutes, focusing on your breathing and letting go of distracting thoughts.",
     "mindfulness_meditation": "Mindfulness Meditation",
-    "mindfulness_meditation_instructions": "1. Find a quiet space and sit comfortably with your back straight.\n2. Close your eyes and focus on your breathing, noticing each inhale and exhale.\n3. If your mind starts to wander, gently bring your focus back to your breath.\n4. Practice non-judgment by observing thoughts without getting attached to them.",
+    "mindfulness_meditation_description":"Mindfulness meditation is a practice that involves focusing on the present moment with non-judgmental awareness of thoughts, feelings, and sensations.",
+    "body_scan_meditation_description":"Body scan meditation is a mindfulness practice where you mentally scan your body from head to toe, observing sensations and releasing tension, promoting relaxation and self-awareness.",
+    "visualization_meditation_description":"Visualization meditation involves imagining peaceful and calming scenes or experiences to enhance relaxation, focus, and emotional well-being. ",
+     "loving_kindness_meditation_description":"Loving-kindness meditation is a practice focused on cultivating feelings of compassion and love for oneself and others. It involves silently repeating phrases of goodwill and kindness, fostering positive emotions and connections with oneself and the world.",
+   
+     "mindfulness_meditation_instructions": "1. Find a quiet space and sit comfortably with your back straight.\n2. Close your eyes and focus on your breathing, noticing each inhale and exhale.\n3. If your mind starts to wander, gently bring your focus back to your breath.\n4. Practice non-judgment by observing thoughts without getting attached to them.",
     "body_scan_meditation": "Body Scan Meditation",
     "body_scan_meditation_instructions": "1. Lie down in a comfortable position, allowing your body to relax fully.\n2. Close your eyes and take a few deep breaths.\n3. Start by focusing on the toes of your right foot, noticing any sensations without judgment.\n4. Slowly move your attention up your body, part by part (toes, ankles, legs, hips, torso, etc.).",
     "visualization_meditation": "Visualization Meditation",

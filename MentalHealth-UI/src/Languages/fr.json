@@ -229,5 +229,9 @@
     "counseling": "Conseil",
     "emergency": "Urgence"
   },
-  "suggestedSolution": "Solution Suggérée"
+  "suggestedSolution": "Solution Suggérée",
+  "mindfulness_meditation_description": "La méditation de pleine conscience est une pratique qui consiste à se concentrer sur le moment présent avec une conscience non critique des pensées, des émotions et des sensations.",
+  "body_scan_meditation_description": "La méditation de scan corporel est une pratique de pleine conscience où vous scannez mentalement votre corps de la tête aux pieds, en observant les sensations et en relâchant les tensions, favorisant la relaxation et la conscience de soi.",
+  "visualization_meditation_description": "La méditation de visualisation implique d'imaginer des scènes ou des expériences paisibles et apaisantes pour améliorer la relaxation, la concentration et le bien-être émotionnel.",
+  "loving_kindness_meditation_description": "La méditation de bienveillance est une pratique axée sur le développement de sentiments de compassion et d'amour pour soi-même et les autres. Elle consiste à répéter silencieusement des phrases de bienveillance et de gentillesse, favorisant des émotions positives et des connexions avec soi-même et le monde."
 }

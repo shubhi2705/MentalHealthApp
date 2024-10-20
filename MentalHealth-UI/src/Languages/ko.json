@@ -229,6 +229,10 @@
     "emergency": "비상"
   },
 
-  "suggestedSolution": "제안된 해결책"
+  "suggestedSolution": "제안된 해결책",
+  "mindfulness_meditation_description": "마음챙김 명상은 생각, 감정 및 감각에 대한 비판 없는 인식을 가지고 현재 순간에 집중하는 실천입니다.",
+"body_scan_meditation_description": "바디 스캔 명상은 마음챙김 실천으로, 머리에서 발끝까지 신체를 정신적으로 스캔하며 감각을 관찰하고 긴장을 풀어줌으로써 이완과 자기 인식을 촉진합니다.",
+"visualization_meditation_description": "시각화 명상은 편안하고 차분한 장면이나 경험을 상상하여 이완, 집중 및 정서적 안녕을 향상시키는 것을 포함합니다.",
+"loving_kindness_meditation_description": "자애 명상은 자신과 타인에 대한 연민과 사랑의 감정을 기르는 데 중점을 둔 실천입니다. 이는 선의와 친절의 문구를 조용히 반복하며 긍정적인 감정과 자신 및 세상과의 연결을 촉진합니다."
 
 }

@@ -228,5 +228,9 @@
         "counseling": "Consejería",
         "emergency": "Emergencia"
       },
-       "suggestedSolution": "Solución Sugerida"
+       "suggestedSolution": "Solución Sugerida",
+       "mindfulness_meditation_description": "La meditación de atención plena es una práctica que implica centrarse en el momento presente con una conciencia no crítica de los pensamientos, sentimientos y sensaciones.",
+"body_scan_meditation_description": "La meditación de escaneo corporal es una práctica de atención plena donde escaneas mentalmente tu cuerpo de la cabeza a los pies, observando sensaciones y liberando tensión, promoviendo la relajación y la autoconciencia.",
+"visualization_meditation_description": "La meditación de visualización implica imaginar escenas o experiencias pacíficas y tranquilizadoras para mejorar la relajación, la concentración y el bienestar emocional.",
+"loving_kindness_meditation_description": "La meditación de amor y bondad es una práctica centrada en cultivar sentimientos de compasión y amor hacia uno mismo y los demás. Implica repetir en silencio frases de buena voluntad y amabilidad, fomentando emociones positivas y conexiones con uno mismo y el mundo."
 }

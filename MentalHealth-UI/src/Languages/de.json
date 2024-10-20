@@ -228,5 +228,9 @@
         "counseling": "Beratung",
         "emergency": "Notfall"
       },
-      "suggestedSolution": "Vorgeschlagene Lösung"
+      "suggestedSolution": "Vorgeschlagene Lösung",
+      "mindfulness_meditation_description": "Achtsamkeitsmeditation ist eine Praxis, die darin besteht, sich auf den gegenwärtigen Moment mit einer nicht wertenden Achtsamkeit für Gedanken, Gefühle und Empfindungen zu konzentrieren.",
+"body_scan_meditation_description": "Die Body-Scan-Meditation ist eine Achtsamkeitspraxis, bei der du deinen Körper mental von Kopf bis Fuß scannst, Empfindungen beobachtest und Spannungen loslässt, um Entspannung und Selbstbewusstsein zu fördern.",
+"visualization_meditation_description": "Visualisierungsmeditation beinhaltet das Vorstellen friedlicher und beruhigender Szenen oder Erfahrungen, um Entspannung, Konzentration und emotionales Wohlbefinden zu verbessern.",
+"loving_kindness_meditation_description": "Loving-Kindness-Meditation ist eine Praxis, die sich auf die Entwicklung von Mitgefühl und Liebe für sich selbst und andere konzentriert. Sie beinhaltet das stille Wiederholen von Sätzen des Wohlwollens und der Freundlichkeit, um positive Emotionen und Verbindungen zu sich selbst und der Welt zu fördern."
 }

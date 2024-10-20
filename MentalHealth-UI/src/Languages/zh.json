@@ -228,5 +228,9 @@
     "counseling": "咨询",
     "emergency": "紧急情况"
   },
-  "suggestedSolution": "建议的解决方案"
+  "suggestedSolution": "建议的解决方案",
+  "mindfulness_meditation_description": "正念冥想是一种实践，涉及以非评判性的意识专注于当下的思想、感受和感官。",
+"body_scan_meditation_description": "身体扫描冥想是一种正念实践，您从头到脚地精神扫描身体，观察感觉并释放紧张，促进放松和自我意识。",
+"visualization_meditation_description": "可视化冥想涉及想象平静和宁静的场景或体验，以增强放松、专注和情感健康。",
+"loving_kindness_meditation_description": "慈悲冥想是一种专注于培养对自己和他人的同情和爱的实践。它涉及静默重复善意和友善的短语，促进积极的情感和与自己及世界的联系。"
 }
