@@ -33,6 +33,18 @@ const SignupPage = () => {
         return `${year}/${month}/${day}`; // Convert to dd/mm/yyyy
     };
 
+    const generateAlphanumericOtp = (length = 6) => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let otp = '';
+      
+        for (let i = 0; i < length; i++) {
+          const randomIndex = Math.floor(Math.random() * characters.length);
+          otp += characters[randomIndex];
+        }
+      
+        return otp;
+      };
+
     const handleSignup = async (e) => {
         e.preventDefault();
         setErrorMessage('');
@@ -75,7 +87,7 @@ const SignupPage = () => {
     };
 
     const signupOffline = async ({ phNumber, name, email, areasOfInterest, gender, formattedDob }) => {
-        const otp = Math.floor(100000 + Math.random() * 900000).toString();
+        const otp = generateAlphanumericOtp(6);
         await db.users.add({
             phoneNumber: phNumber,
             name,
@@ -181,7 +193,7 @@ const SignupPage = () => {
                 </div>
                 <div className="mb-4">
                     <label className="block mb-2 text-sm font-medium" htmlFor="areasOfInterest">
-                        <FontAwesomeIcon icon={faListAlt} className="mr-2" /> {t('aoi')}
+                        <FontAwesomeIcon icon={faListAlt} className="mr-2" /> {t('Aoi')}
                     </label>
                     <input
                         type="text"

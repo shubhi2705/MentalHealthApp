@@ -12,8 +12,8 @@
       "newUser":"New User",
       "requestOtp":"Request OTP",
       "pleaseSignUp":"Please sign up",
-      "dashboard":"Dasboard",
       "profile":"Profile",
+      "suggestedSolution":"Suggested Solution",
       "selfAssess":"Self Assessment",
       "resources":"Resources",
       "workshops":"Workshops",
@@ -46,7 +46,12 @@
     "breathing_exercise_description": "A guided breathing exercise to help you relax and center your thoughts.",
     "breathing_exercise_instructions": "1. Sit or lie down in a comfortable position.\n2. Close your eyes and take a deep breath through your nose, feeling your lungs expand.\n3. Hold your breath for a moment, then slowly exhale through your mouth.\n4. Repeat this process for the next 5-10 minutes, focusing on your breathing and letting go of distracting thoughts.",
     "mindfulness_meditation": "Mindfulness Meditation",
-    "mindfulness_meditation_instructions": "1. Find a quiet space and sit comfortably with your back straight.\n2. Close your eyes and focus on your breathing, noticing each inhale and exhale.\n3. If your mind starts to wander, gently bring your focus back to your breath.\n4. Practice non-judgment by observing thoughts without getting attached to them.",
+    "mindfulness_meditation_description":"Mindfulness meditation is a practice that involves focusing on the present moment with non-judgmental awareness of thoughts, feelings, and sensations.",
+    "body_scan_meditation_description":"Body scan meditation is a mindfulness practice where you mentally scan your body from head to toe, observing sensations and releasing tension, promoting relaxation and self-awareness.",
+    "visualization_meditation_description":"Visualization meditation involves imagining peaceful and calming scenes or experiences to enhance relaxation, focus, and emotional well-being. ",
+     "loving_kindness_meditation_description":"Loving-kindness meditation is a practice focused on cultivating feelings of compassion and love for oneself and others. It involves silently repeating phrases of goodwill and kindness, fostering positive emotions and connections with oneself and the world.",
+   
+     "mindfulness_meditation_instructions": "1. Find a quiet space and sit comfortably with your back straight.\n2. Close your eyes and focus on your breathing, noticing each inhale and exhale.\n3. If your mind starts to wander, gently bring your focus back to your breath.\n4. Practice non-judgment by observing thoughts without getting attached to them.",
     "body_scan_meditation": "Body Scan Meditation",
     "body_scan_meditation_instructions": "1. Lie down in a comfortable position, allowing your body to relax fully.\n2. Close your eyes and take a few deep breaths.\n3. Start by focusing on the toes of your right foot, noticing any sensations without judgment.\n4. Slowly move your attention up your body, part by part (toes, ankles, legs, hips, torso, etc.).",
     "visualization_meditation": "Visualization Meditation",
@@ -166,6 +171,68 @@
   "helplineBefrienders": "Befrienders Worldwide",
   "helplineVarious": "Various Helplines",
   "helplineLocalEmergency": "Local Emergency Services",
-  "helplineCall112": "Call 112"
+  "helplineCall112": "Call 112",
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome to your Dashboard",
+    "profile": "Profile",
+    "selfAssessment": "Self Assessment",
+    "resources": "Resources",
+    "workshops": "Workshops",
+    "exercises": "Exercises",
+    "counseling": "Counseling",
+    "emergency": "Emergency"
+  },
+  "header": {
+        "title": "Your Mental Health Matters",
+        "subtitle": "Explore, Understand, and Improve Your Mental Well-Being."
+    },
+    "facts": {
+        "title": "Did You Know?",
+        "items": [
+            "1 in 4 people will experience a mental health problem in their lifetime.",
+            "Mental health issues are among the leading causes of disability worldwide.",
+            "Early intervention can significantly improve outcomes for mental health disorders.",
+            "Talking about mental health can help reduce stigma and encourage others to seek help.",
+            "Positive mental health is essential for overall well-being and life satisfaction.",
+            "Social connections are vital for good mental health and can act as a buffer against stress."
+        ]
+    },
+    "issues": {
+        "title": "Common Mental Health Issues",
+        "items": [
+            {
+                "title": "Anxiety Disorders",
+                "description": "Characterized by excessive fear or anxiety.",
+                "solution": "Practice mindfulness and seek therapy."
+            },
+            {
+                "title": "Depression",
+                "description": "A mood disorder that affects how you feel.",
+                "solution": "Regular exercise and professional help."
+            },
+            {
+                "title": "Stress",
+                "description": "The body’s reaction to a challenge or demand.",
+                "solution": "Relaxation techniques and time management."
+            }
+        ]
+    },
+    "unesco": {
+        "title": "Insights from UNESCO",
+        "items": [
+            "Globally, mental health problems are on the rise, with an estimated 264 million people suffering from depression.",
+            "Lack of mental health services contributes to stigma and discrimination.",
+            "Many individuals face barriers to accessing mental health services, including financial constraints and insufficient healthcare infrastructure.",
+            "Early identification and intervention in mental health issues can significantly improve outcomes.",
+            "Educational institutions play a vital role in promoting mental health awareness and providing supportive environments.",
+            "A holistic approach, integrating mental health into broader health initiatives, is essential for effective support."
+        ]
+    },
+    "cta": "Learn More About Mental Health Resources",
+    "footer": {
+        "contact": "Contact Us: info@mentalhealthapp.com",
+        "follow": "Follow us on social media"
+    }
  }
   
