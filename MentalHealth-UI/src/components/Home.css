@@ -12,7 +12,7 @@ p {
 
 .App-header {
     background-color: #e6f7ff;
-    padding: 40px;
+    padding: 20px;
     animation: fadeIn 1s ease;
     border-radius: 8px;
 }
@@ -32,16 +32,17 @@ p {
     transform: scale(1.05);
 }
 
-.facts, .common-issues, .unesco-insights, .resources {
-    margin: 20px auto;
-    padding: 20px;
+.facts, .common-issues, .unesco-insights {
+    margin: 10px auto;
+    padding: 10px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     animation: slideIn 0.5s ease;
+    max-width: 1000px; /* Increased width for each section */
 }
 
-.fact-card, .issue-card, .resource-card {
+.fact-card, .issue-card {
     display: flex;
     align-items: center; /* Center items vertically */
     margin: 10px 0;
@@ -52,7 +53,7 @@ p {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.fact-card:hover, .issue-card:hover, .resource-card:hover {
+.fact-card:hover, .issue-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
@@ -93,7 +94,7 @@ h2 {
 }
 
 .container {
-    max-width: 800px; /* Fixed width */
+    max-width: 10000px; /* Increased width for the container */
     margin: 0 auto; /* Center align */
     padding: 20px; /* Padding inside the container */
     overflow-y: auto; /* Enable vertical scroll if content overflows */
@@ -129,6 +130,31 @@ h2 {
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+/* Flexbox styles for sections */
+.flex-container {
+    display: flex;
+    justify-content: space-between; /* Adjust space between sections */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    margin: 20px 0; /* Space around the container */
+}
+
+.flex-item {
+    flex: 1; /* Allow items to grow equally */
+    margin: 10px; /* Space between items */
+    min-width: 300px; /* Minimum width to maintain structure */
+    max-width: 32%; /* Limit width for responsiveness */
+    background-color: #f9f9f9; /* Light background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    padding: 20px; /* Padding inside each section */
+}
+
+@media (max-width: 768px) {
+    .flex-item {
+        max-width: 100%; /* Stack on smaller screens */
     }
 }
 

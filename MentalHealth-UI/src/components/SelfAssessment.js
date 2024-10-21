@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Container, Accordion, Button, Form, Card } from 'react-bootstrap';
+import { Container, Accordion, Button, Form, Card, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SelfAssessment.css';
 
@@ -26,6 +26,7 @@ const SelfAssessment = () => {
 
   const [feedback, setFeedback] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false); // Modal state
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,15 +35,27 @@ const SelfAssessment = () => {
       [name]: value,
     }));
   };
-
+const sendEmail=async()=>{
+  const response = await fetch("http://localhost:5000/api/auth/send-email", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if(response.ok){
+    console.log("Sent email successfully");
+  }
+  else{
+    console.log("Unable to trigger email at the moment")
+  }
+}
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true); // Start loading before sending the request
+    setLoading(true);
 
-    const userResponses = Object.values(formData).join(' '); // Combine all responses into one string
+    const userResponses = Object.values(formData).join(' ');
 
     try {
-      // Send the responses to the backend for sentiment analysis
       const response = await fetch('http://localhost:5001/analyze-sentiment', {
         method: 'POST',
         headers: {
@@ -54,9 +67,8 @@ const SelfAssessment = () => {
       const result = await response.json();
 
       if (response.ok && result) {
-        const sentimentLabel = result.sentiment.document.label; // positive, negative, or neutral
+        const sentimentLabel = result.sentiment.document.label;
 
-        // Provide feedback based on the sentiment analysis
         let feedbackMessage = '';
         if (sentimentLabel === 'positive') {
           feedbackMessage = "Thank you for your responses! It seems like you're handling stress and emotional well-being positively.";
@@ -65,18 +77,20 @@ const SelfAssessment = () => {
         } else {
           feedbackMessage = "Your responses are quite neutral. If you're unsure about your well-being, consider our resources for further self-care.";
         }
-
-        // Set feedback to display to the user
         setFeedback(feedbackMessage);
+     //   sendEmail();
+        
       } else {
-        // Handle error responses from the server
         setFeedback(result.message || 'Error analyzing sentiment.');
       }
     } catch (error) {
       console.error('Error analyzing sentiment:', error);
       setFeedback('There was an error analyzing your responses. Please try again later.');
+      
     } finally {
-      setLoading(false); // Stop loading after processing
+      setLoading(false);
+      setShowModal(true);
+      sendEmail();
     }
   };
 
@@ -137,7 +151,7 @@ const SelfAssessment = () => {
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">3. What are the main sources of stress in your life right now?</Form.Label>
                     <div className="d-flex mb-3 ">
-                      {['Mental', 'Physical', 'Emotional'].map((option) => (
+                      {['Mental', 'Physical', 'Emotional','Not Applicable'].map((option) => (
                         <Form.Check 
                           key={option} 
                           type="radio" 
@@ -154,7 +168,7 @@ const SelfAssessment = () => {
 
                     <Form.Label className="fw-bold">4. How do you typically respond to stress?</Form.Label>
                     <div className="d-flex mb-3 ">
-                      {['Exercise', 'Meditation', 'Avoidance'].map((option) => (
+                      {['Exercise', 'Meditation', 'Avoidance','Not Applicable'].map((option) => (
                         <Form.Check 
                           key={option} 
                           type="radio" 
@@ -171,7 +185,7 @@ const SelfAssessment = () => {
 
                     <Form.Label className="fw-bold">5. Have you experienced any significant life changes recently that have affected your stress levels?</Form.Label>
                     <div className="d-flex mb-3 ">
-                      {['Yes', 'No'].map((option) => (
+                      {['Yes', 'No','Not Applicable'].map((option) => (
                         <Form.Check 
                           key={option} 
                           type="radio" 
@@ -296,13 +310,23 @@ const SelfAssessment = () => {
             </div>
           </form>
           {loading && <p>Loading...</p>}
-          {feedback && (
-            <div className="mt-3 text-center">
-              <h5>{feedback}</h5>
-            </div>
-          )}
         </Card.Body>
       </Card>
+
+      {/* Modal for feedback */}
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Feedback</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h5>{feedback}</h5>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };

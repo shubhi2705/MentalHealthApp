@@ -82,6 +82,29 @@ const SignInPage = () => {
     }
   };
 
+  const syncOTPinMasterDB=async(otp)=>{
+    var phNumber = `+91${phoneNumber}`;
+    try {
+      // Now call the API
+      const response = await fetch('http://localhost:5000/api/auth/update-otp', {
+          method: 'PUT',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ phNumber,otp }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        console.log("OTP updated successfully")
+      } else {
+        console.log("Error in updating OTP")
+      }
+  } catch (error) {
+    console.log("Error in updating OTP",error)
+  }
+  }
   const fetchOTPFromDB = async () => {
     try {
       var phoneNumber_new = `+91${phoneNumber}`;
@@ -90,7 +113,9 @@ const SignInPage = () => {
         .equals(phoneNumber_new)
         .first();
       if (user) {
-        setMessage(`OTP retrieved from local DB: ${user.otp}`);
+        setMessage(`Looks like either your number is not verified or you are not connected to internet, Please use this OTP: ${user.otp}`);
+        setIsOtpSent(`${user.otp}`);
+        syncOTPinMasterDB(`${user.otp}`)
       } else {
         setMessage("User not found in local database.");
       }
