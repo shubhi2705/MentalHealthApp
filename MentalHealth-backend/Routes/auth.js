@@ -24,24 +24,22 @@ router.get('/send-email',async(req,res)=>{
         to: 'shubhisinghal164@gmail.com', // Recipient email address
         from: 'shubhisinghal2705@GMAIL.COM', // Your verified sender email address
         subject: 'YouMatter-Request for Mental Health Assistance',
-        text: `Dear [NGO Name/Contact Person],
+        text: `Dear Receiver,
   
-        My name is Sarah Johnson, and I am reaching out on behalf of my friend, John Doe. John is currently experiencing mental health challenges, including severe anxiety and depression, which have significantly impacted his daily life and well-being.
+        My name is John Doe, and I am reaching out on behalf of my friend, Robin. Robin is currently experiencing mental health challenges, including severe anxiety and depression, which have significantly impacted his daily life and well-being.
         
         We are seeking assistance and guidance from your organization regarding available resources, support programs, or counseling services. John has expressed a strong desire to find help and improve his situation.
         
         We appreciate any help you can provide and look forward to your response. Thank you for the important work you do in supporting individuals facing mental health challenges.
         
         Best regards,
-        Sarah Johnson
-        [Your Email]
-        [Your Phone Number]`, // You can also use HTML for a richer format
+        John Doe`, // You can also use HTML for a richer format
             html: `<p>Dear [NGO Name/Contact Person],</p>
-        <p>My name is Sarah Johnson, and I am reaching out on behalf of my friend, John Doe. John is currently experiencing mental health challenges, including severe anxiety and depression, which have significantly impacted his daily life and well-being.</p>
+        <p>My name is John Doe, and I am reaching out on behalf of my friend, Robin. John is currently experiencing mental health challenges, including severe anxiety and depression, which have significantly impacted his daily life and well-being.</p>
         <p>We are seeking assistance and guidance from your organization regarding available resources, support programs, or counseling services. John has expressed a strong desire to find help and improve his situation.</p>
         <p>We appreciate any help you can provide and look forward to your response. Thank you for the important work you do in supporting individuals facing mental health challenges.</p>
         <p>Best regards,<br>
-        Sarah Johnson<br></p>`
+        John Doe<br></p>`
       };
     
       try {
