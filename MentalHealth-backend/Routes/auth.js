@@ -34,7 +34,7 @@ router.get('/send-email',async(req,res)=>{
         
         Best regards,
         John Doe`, // You can also use HTML for a richer format
-            html: `<p>Dear [NGO Name/Contact Person],</p>
+            html: `<p>Dear Receiver,</p>
         <p>My name is John Doe, and I am reaching out on behalf of my friend, Robin. John is currently experiencing mental health challenges, including severe anxiety and depression, which have significantly impacted his daily life and well-being.</p>
         <p>We are seeking assistance and guidance from your organization regarding available resources, support programs, or counseling services. John has expressed a strong desire to find help and improve his situation.</p>
         <p>We appreciate any help you can provide and look forward to your response. Thank you for the important work you do in supporting individuals facing mental health challenges.</p>

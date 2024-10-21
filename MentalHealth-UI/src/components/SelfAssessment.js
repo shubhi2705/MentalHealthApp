@@ -78,7 +78,7 @@ const sendEmail=async()=>{
           feedbackMessage = "Your responses are quite neutral. If you're unsure about your well-being, consider our resources for further self-care.";
         }
         setFeedback(feedbackMessage);
-        sendEmail();
+     //   sendEmail();
         
       } else {
         setFeedback(result.message || 'Error analyzing sentiment.');
