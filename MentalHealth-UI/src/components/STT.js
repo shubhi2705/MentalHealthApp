@@ -32,7 +32,7 @@ function STT() {
       const formData = new FormData();
       formData.append('audio', audioBlob, 'audio.wav');
 
-      axios.post('http://localhost:5001/api/stt', formData, {
+      axios.post('http://localhost:5000/api/server/stt', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

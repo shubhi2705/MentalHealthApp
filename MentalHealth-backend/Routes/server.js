@@ -1,25 +1,12 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
 const { IamAuthenticator } = require('ibm-watson/auth');
 const SpeechToTextV1 = require('ibm-watson/speech-to-text/v1');
 const TextToSpeechV1 = require('ibm-watson/text-to-speech/v1');
 const AssistantV2 = require('ibm-watson/assistant/v2');
-const bodyParser = require('body-parser');
 const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1');
+const express = require('express');
+require('dotenv').config();
 
-
-const fs = require('fs');
-
-const app = express();
-
-// Middleware
-app.use(cors());
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ limit: '10mb', extended: true }));
-
-app.use(bodyParser.json());
-
+const router = express.Router();
 // Configure the Watson NLU API
 const nlu = new NaturalLanguageUnderstandingV1({
   version: '2021-08-01', // Use the latest API version
@@ -56,7 +43,7 @@ const assistant = new AssistantV2({
 
 
 // Endpoint for sentiment analysis
-app.post('/analyze-sentiment', async (req, res) => {
+router.post('/analyze-sentiment', async (req, res) => {
   const { text } = req.body;
 
   try {
@@ -73,7 +60,7 @@ app.post('/analyze-sentiment', async (req, res) => {
   }
 });
 // Route to handle Speech to Text
-app.post('/api/stt', (req, res) => {
+router.post('/stt', (req, res) => {
   const audio = req.body.audio;
 
   if (!audio) {
@@ -99,7 +86,7 @@ app.post('/api/stt', (req, res) => {
 });
 
 // Route to handle Text to Speech
-app.post('/api/tts', (req, res) => {
+router.post('/tts', (req, res) => {
   const text = req.body.text;
 
   const params = {
@@ -126,7 +113,8 @@ app.post('/api/tts', (req, res) => {
 });
 
 // Route to handle Assistant chatbot
-app.post('/api/message', async (req, res) => {
+router.post('/message', async (req, res) => {
+  console.log("Inside chatrbot")
   const { message, sessionId } = req.body;
 
   if (!sessionId) {
@@ -152,8 +140,11 @@ app.post('/api/message', async (req, res) => {
   }
 });
 
-// Start the server
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+module.exports = router;
+
+// // Start the server
+// const PORT = process.env.PORT || 5001;
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// });
+

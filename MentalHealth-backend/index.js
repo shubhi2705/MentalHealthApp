@@ -2,11 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
-
 dotenv.config();
 
 const authRoutes = require("./Routes/auth");
 const userRoutes = require("./Routes/user");
+const serverRoutes=require("./Routes/server");
 
 const app = express();
 app.use(cors());
@@ -29,6 +29,7 @@ mongoose
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/server",serverRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

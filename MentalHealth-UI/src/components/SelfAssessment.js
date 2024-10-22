@@ -56,7 +56,8 @@ const sendEmail=async()=>{
     const userResponses = Object.values(formData).join(' ');
 
     try {
-      const response = await fetch('http://localhost:5001/analyze-sentiment', {
+      // Send the responses to the backend for sentiment analysis
+      const response = await fetch('http://localhost:5000/api/server/analyze-sentiment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -13,7 +13,7 @@ function Chatbot() {
 
   useEffect(() => {
     // Create session when component mounts
-    axios.post('http://localhost:5001/api/message', {})
+    axios.post('http://localhost:5000/api/server/message', {})
       .then(res => {
         setSessionId(res.data.sessionId);
       })
@@ -28,7 +28,7 @@ function Chatbot() {
     const newMessages = [...messages, { from: 'user', text: input }];
     setMessages(newMessages);
 
-    axios.post('http://localhost:5001/api/message', {
+    axios.post('http://localhost:5000/api/server/message', {
       message: input,
       sessionId: sessionId,
     })
